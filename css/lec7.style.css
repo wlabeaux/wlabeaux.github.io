@@ -1,0 +1,28 @@
+body{
+    background-color: green;
+}
+
+div{
+    background-color: blue;
+    color: white;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:5vw;
+    margin: 2.5vw;
+    border:yellow 5px solid;
+}
+
+.div-wrapper{
+    display: flex;
+    
+}
+
+@media screen and (max-width: 900px){
+    body{
+        background-color: red;
+    }
+    .div-wrapper{
+        display:flex;
+        flex-direction: column;
+    }
+}
