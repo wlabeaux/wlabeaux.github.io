@@ -1,6 +1,10 @@
-/* ... (previous styles) */
+/* Reset default margin and padding for the body */
+body {
+    margin: 0;
+    padding: 0;
+}
 
-/* Style the container */
+/* Create a container to hold the image and scoreboard */
 .container {
     position: relative;
     max-width: 100%;
@@ -13,73 +17,85 @@ img {
     display: block;
 }
 
-/* Style the overlay */
-.overlay {
+/* Style the scoreboard overlay */
+.scoreboard1 {
     position: absolute;
-    top: 20px; /* Adjust the top position as needed */
-    left: 20px; /* Adjust the left position as needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    padding: 10px;
+    top: 200px; /* Adjust the top position as needed */
+    left: 220px; /* Adjust the right position as needed */
+    background-color: rgba(255, 32, 32, 0.7); /* Semi-transparent background */
+    padding: 20px;
     border-radius: 5px;
     color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Style the team sections */
-.team {
-    display: flex;
     align-items: center;
-    margin-bottom: 10px;
 }
 
-#teamA {
-    background-color: #ff5733; /* Team A color */
-    padding: 5px;
-}
-
-#teamB {
-    background-color: #3366ff; /* Team B color */
-    padding: 5px;
-}
-
-.team img {
-    max-width: 50px; /* Adjust the logo size */
-    height: auto;
-    margin-right: 10px;
+/* Style the scoreboard text */
+.scoreboard1 h2 {
+    margin: 0;
+    font-size: 30px;
 }
 
 /* Style the score */
-.team h2 {
-    font-size: 24px;
-    margin: 0;
-}
-
-/* Style the game clock */
-.game-clock {
-    text-align: center;
-}
-
-.game-clock h2 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.game-clock p {
-    margin: 0;
+.scoreboard1 #score {
+    font-weight: bold;
     font-size: 36px;
 }
 
+/* Style the player name */
+.scoreboard1 p {
+    margin: 0;
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.scoreboard2 {
+    position: absolute;
+    top: 200px; /* Adjust the top position as needed */
+    left: 620px; /* Adjust the right position as needed */
+    background-color: gold; /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 5px;
+    color: black;
+    align-items: center;
+}
+
+/* Style the scoreboard text */
+.scoreboard2 h2 {
+    margin: 0;
+    align-items: center;
+    font-size: 30px;
+}
+
+/* Style the score */
+.scoreboard2 #score {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+/* Style the player name */
+.scoreboard2 p {
+    margin: 0;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.CenterLogo {
+    position:absolute;
+    max-width: 50%;
+    height: auto;
+    top:200px;
+    left: 400px;
+}
 /* Style the watermark */
 .watermark {
     position: absolute;
-    top: 2px; /* Adjust the top position as needed */
+    top: 20px; /* Adjust the top position as needed */
     right: 20px; /* Adjust the right position as needed */
     opacity: 0.9; /* Adjust the opacity as needed */
 }
 
 /* Style the watermark image */
 .watermark img {
-    max-width: 200px; /* Adjust the size of the watermark */
+    max-width: 300px; /* Adjust the size of the watermark */
     height: auto;
 }

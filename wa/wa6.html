@@ -1,35 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoreboard Overlay</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Scoreboard Overlay with Watermark</title>
+    <link rel="stylesheet" href="../css/wa6style.css">
 </head>
 <body>
     <div class="container">
-        <img src="../img/Folsom_KSU_Great.jpg" alt="Image">
-        <div class="overlay">
-            <div class="team" id="teamA">
-                <img src="teamA-logo.png" alt="Team A Logo">
-                <h2>Team A</h2>
-                <p>Score: <span id="scoreA">0</span></p>
-            </div>
-            <div class="team" id="teamB">
-                <img src="teamB-logo.png" alt="Team B Logo">
-                <h2>Team B</h2>
-                <p>Score: <span id="scoreB">0</span></p>
-            </div>
-            <div class="game-clock">
-                <h2>Game Clock</h2>
-                <p><span id="minutes">00</span>:<span id="seconds">00</span></p>
-            </div>
-            <div class="watermark">
-                <img src="../img/ESPN-logo.png" alt="Watermark Logo">
-            </div>
+        <img src="../img/CUFB_USC_Selects-1.jpg" alt="Image of Folsom Field Boulder,CO">
+        <div class="watermark">
+            <img src="../img/ESPN-logo.png" alt="Watermark Logo">
+        </div>
+        <div class="CenterLogo">
+            <img src="../img/ESPNCFB2020.png" alt="ESPNCFB2020 logo">
+        </div>
+        <div class="scoreboard1">
+            <h2><span id="score">0</span></h2>
+            <p>Nebraska</p>
+        </div>
+        <div class="scoreboard2">
+            <h2><span id="score2">28</span></h2>
+            <p>Colorado</p>
         </div>
     </div>
 </body>
 </html>
-
