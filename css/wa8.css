@@ -1,0 +1,63 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: forestgreen;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+nav{
+    height: 50vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:20px;
+    background-color: maroon;
+}
+nav a{
+    width:10vw;
+    text-align: center;
+    text-decoration: none;
+    color:white;
+}
+nav a:hover{
+    background-color: aqua;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+
+
+img{
+    width:30vw;
+    height: 50vh;
+}
+
+img:hover{
+    width:50%;
+    transform: scale(.75);
+}
+
+#red-ball{
+    background-color: maroon;
+    width: 20px;
+    height:20px;
+    border-radius: 50%;
+    position: absolute;
+    left:5vw;
+    top:0;
+    animation-name: getBig;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    animation-direction: normal;
+}
+
+@keyframes getBig{
+    from{
+        transform: scale(0);
+        transform: translate(0,0);
+    }
+
+    to{
+        transform: scale(5);
+        transform: translate(100vw,100vh);
+    }
+}
