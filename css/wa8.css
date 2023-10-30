@@ -24,7 +24,9 @@ nav a:hover{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
 }
-
+top{
+    margin-bottom: auto;
+}
 
 img{
     width:30vw;

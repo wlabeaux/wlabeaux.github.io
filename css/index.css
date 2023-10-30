@@ -1,0 +1,356 @@
+/* Reset default margin and padding */
+body, h1, h2, p, div {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a background color for the entire page */
+  body {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .logo{
+    width: 10%;
+    height: auto;
+    align-items: flex-start;
+    top:10px;
+    left: 16px;
+    margin: 10px 50px 10px;
+  }
+
+  .top{
+    display:flex;
+    background-color: rgb(89, 89, 89);  
+    color: white;
+    align-items: center;
+  }
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #e3fff4;
+  overflow: auto;
+  font-family: sans-serif ;
+  display: flex;
+  justify-content: end;
+  position: sticky;
+}
+
+/* Navbar links */
+.navbar a {
+  float: right;
+  text-align: center;
+  padding: 12px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: end;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #464646;
+}
+
+
+active {
+  background-color: #ffffff;
+  
+}
+
+.About{
+  height: 626px;
+  background-image: url(../img/colo.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 1em 1em 1em 1em;
+  width: auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.8;
+}
+  /* Style each div */
+  .concert-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .concert-item {
+    width: calc(66.66% - 20px);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  /* code alternates divs so even concert #s are on right side of screen*/
+  .concert-item:nth-child(even) {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .concert-item:hover {
+    transform: scale(1.02);
+  }
+
+  /* Additional styles for specific divs (modify as needed) */
+  #Vivaldi {
+    background-color: #e3fff4;
+  }
+  
+  #Beethoven3 {
+    background-color: #e3fff4;
+    flex-direction: end;
+  }
+  
+  #Tchaikovsky {
+    background-color: #e3fff4;
+  }
+  
+  #Ravel {
+    background-color: #e3fff4;
+  }
+  
+  #Beethoven8 {
+    background-color: #e3fff4;
+  }
+  
+  #BeethovenEmperor {
+    background-color: #e3fff4;
+  }
+  
+  #Bartok {
+    background-color: #e3fff4;
+  }
+  
+  #Brahms {
+    background-color: #e3fff4;
+  }
+  
+  #BeethovenViolin {
+    background-color: #e3fff4;
+  }
+  
+  #concert-10 {
+    background-color: #e3fff4;
+  }
+  
+  @media screen and (max-width: 400px) {
+ /* Adjust font sizes */
+ h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #e3fff4;
+  overflow: auto;
+  font-family: sans-serif ;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+}
+/* Reorganize content */
+.concert-container {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.concert-item {
+  width: 100%; /* Full width on small screens */
+}
+
+/* Adjust margins and padding */
+.concert-item {
+  margin: 10px 0; /* Add spacing between items */
+  padding: 10px;
+}
+
+/* Use smaller images */
+.concert-item img {
+  max-width: 100%; /* Ensure images fit within the screen width */
+}
+
+/* Use a single-column layout for forms */
+form {
+  flex-direction: column;
+}
+
+/* Ensure touch targets are large enough */
+.button {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+  }
+
+  @media screen and (min-width: 1500px) {
+    body, h1, h2, p, div {
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Set a background color for the entire page */
+    body {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .logo{
+      width: 10%;
+      height: auto;
+      align-items: flex-start;
+      top:10px;
+      left: 16px;
+      margin: 10px 50px 10px;
+    }
+  
+    .top{
+      display:flex;
+      background-color: rgb(89, 89, 89);  
+      color: white;
+      align-items: center;
+    }
+  /* Style the navigation bar */
+  .navbar {
+    width: 100%;
+    background-color: #e3fff4;
+    overflow: auto;
+    font-family: sans-serif ;
+    display: flex;
+    justify-content: end;
+    position: sticky;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    float: right;
+    text-align: center;
+    padding: 12px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: end;
+    text-decoration: none;
+    font-size: 22px;
+  }
+  
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #464646;
+  }
+  
+  
+  active {
+    background-color: #ffffff;
+    
+  }
+  
+  .About{
+    height: 626px;
+    background-image: url(../img/colo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 1em 1em 1em 1em;
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.8;
+  }
+    /* Style each div */
+    .concert-container {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .concert-item {
+      width: calc(66.66% - 20px);
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    /* code alternates divs so even concert #s are on right side of screen*/
+    .concert-item:nth-child(even) {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  
+    .concert-item:hover {
+      transform: scale(1.02);
+    }
+  
+    /* Additional styles for specific divs (modify as needed) */
+    #Vivaldi {
+      background-color: #e3fff4;
+    }
+    
+    #Beethoven3 {
+      background-color: #e3fff4;
+      flex-direction: end;
+    }
+    
+    #Tchaikovsky {
+      background-color: #e3fff4;
+    }
+    
+    #Ravel {
+      background-color: #e3fff4;
+    }
+    
+    #Beethoven8 {
+      background-color: #e3fff4;
+    }
+    
+    #BeethovenEmperor {
+      background-color: #e3fff4;
+    }
+    
+    #Bartok {
+      background-color: #e3fff4;
+    }
+    
+    #Brahms {
+      background-color: #e3fff4;
+    }
+    
+    #BeethovenViolin {
+      background-color: #e3fff4;
+    }
+    
+    #concert-10 {
+      background-color: #e3fff4;
+    }
+  }
