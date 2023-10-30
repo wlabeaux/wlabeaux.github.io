@@ -1,10 +1,9 @@
-/* Reset default margin and padding */
+
 body, h1, h2, p, div {
     margin: 0;
     padding: 0;
   }
   
-  /* Set a background color for the entire page */
   body {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
@@ -49,7 +48,7 @@ body, h1, h2, p, div {
   font-size: 22px;
 }
 
-/* Navbar links on mouse-over */
+
 .navbar a:hover {
   background-color: #464646;
 }
@@ -105,7 +104,6 @@ active {
     transform: scale(1.02);
   }
 
-  /* Additional styles for specific divs (modify as needed) */
   #Vivaldi {
     background-color: #e3fff4;
   }
@@ -147,7 +145,7 @@ active {
     background-color: #e3fff4;
   }
   
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
  /* Adjust font sizes */
  h1 {
   font-size: 24px;
@@ -164,14 +162,14 @@ p {
 
 .navbar {
   width: 100%;
-  background-color: #e3fff4;
+  background-color: #00ff99;
   overflow: auto;
   font-family: sans-serif ;
   display: flex;
   justify-content: center;
   position: sticky;
 }
-/* Reorganize content */
+
 .concert-container {
   flex-direction: column;
   width: 100%;
@@ -179,7 +177,7 @@ p {
 }
 
 .concert-item {
-  width: 100%; /* Full width on small screens */
+  width: 100%; 
 }
 
 /* Adjust margins and padding */
@@ -188,21 +186,16 @@ p {
   padding: 10px;
 }
 
-/* Use smaller images */
+
 .concert-item img {
-  max-width: 100%; /* Ensure images fit within the screen width */
+  max-width: 100%; 
 }
 
-/* Use a single-column layout for forms */
 form {
   flex-direction: column;
 }
 
-/* Ensure touch targets are large enough */
-.button {
-  padding: 10px 20px;
-  font-size: 18px;
-}
+
   }
 
   @media screen and (min-width: 1500px) {
@@ -211,7 +204,6 @@ form {
       padding: 0;
     }
     
-    /* Set a background color for the entire page */
     body {
       background-color: #ffffff;
       color: rgb(0, 0, 0);
@@ -233,7 +225,7 @@ form {
       color: white;
       align-items: center;
     }
-  /* Style the navigation bar */
+ 
   .navbar {
     width: 100%;
     background-color: #e3fff4;
@@ -255,8 +247,7 @@ form {
     text-decoration: none;
     font-size: 22px;
   }
-  
-  /* Navbar links on mouse-over */
+
   .navbar a:hover {
     background-color: #464646;
   }
@@ -311,8 +302,7 @@ form {
     .concert-item:hover {
       transform: scale(1.02);
     }
-  
-    /* Additional styles for specific divs (modify as needed) */
+ 
     #Vivaldi {
       background-color: #e3fff4;
     }
