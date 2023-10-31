@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: center;
+        border: rgb(0, 52, 0);
+        background-color: aqua;
+        color: blueviolet;
+        box-shadow: 1px 1px 2px black;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button">Click to enter Your name:</button>
+    <button id="try">Craziness</button>
+    <h1 id = "text"></h1>
+    <h1 id="hover">They locked me in a room.</h1>
+    <b id="effect"></b>
+    <script>
+        document.getElementById("try").addEventListener("click", function(){
+            document.getElementById("text").innerText = "I was crazy once..."});
+
+
+        const y = document.getElementById("hover");
+        y.addEventListener("mouseover", RespondMouseOver);
+        y.addEventListener("mouseout", RespondMouseOut);
+        y.addEventListener("mousemove", RespondMouseMove);
+        
+        function RespondMouseOver(){
+            document.getElementById("element").innerHTML = "A rubber room";
+        }
+        function RespondMouseOut(){
+            document.getElementById("element").innerHTML = "A rubber room with rats";
+        }
+        function RespondMouseOut(){
+            document.getElementById("element").innerHTML = "The rats made me crazy";
+        }
+        //variables defined using 'const' or 'let'
+        const button = document.querySelector("button");   
+
+        button.addEventListener('click', updateName);
+
+        function updateName() {
+            let name = prompt("Enter a new name");
+            //console.log("The function ran correctly")
+            //console.log(name);
+            button.textContent = `Player 1: ${name}`;
+        }
+</script>
