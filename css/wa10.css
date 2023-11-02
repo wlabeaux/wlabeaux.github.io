@@ -1,6 +1,10 @@
 body {
     font-family: helvetica, sans-serif;
     width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   label {
@@ -11,14 +15,30 @@ body {
     padding-bottom: 20px;
   }
 
+  .randomize{
+    background-color: #343A40;
+    border-radius: 4px;  
+    color: black;
+    cursor:rgb(0, 0, 0)nter;
+    padding: 8px 16px;
+  }
+  
+  .randomize:hover{
+     background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+     animation: slidebg 5s linear infinite;
+  }
+  .randomize{
+    background-color: aqua;
+  }
+
   input[type="text"] {
     padding: 5px;
     width: 150px;
   }
 
   p {
-    background: #ffc125;
-    color: #5e2612;
+    background: #c3bdaf;
+    color: #000000;
     padding: 10px;
     visibility: hidden;
   }
