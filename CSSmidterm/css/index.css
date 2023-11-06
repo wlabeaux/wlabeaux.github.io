@@ -61,7 +61,7 @@ active {
 
 .About{
   height: 626px;
-  background-image: url(../img/colo.jpeg);
+  background-image: url(../../img/colo.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -260,7 +260,7 @@ form {
   
   .About{
     height: 626px;
-    background-image: url(../img/colo.jpeg);
+    background-image: url(../colo.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
