@@ -12,7 +12,7 @@ const images = ["newimages/pic1.jpg",
 "newimages/pic5.webp"]
 /* Declaring the alternative text for each image file */
 const altText = {
-    "image1": "will with a camera",
+    "image1": "tennis ball",
     "image2": "basketball",
     "image3": "football",
     "image4": "baseball",
