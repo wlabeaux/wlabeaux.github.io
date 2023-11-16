@@ -60,6 +60,11 @@ header {
     background-color: #45a049;
 }
 
+p{
+    align-items: end;
+    text-align: center;
+}
+
 .loading {
     position: fixed;
     top: 0;
