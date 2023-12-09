@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annoying Phone Input</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #phone-input-container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .digit-slider {
+      width: 40px;
+      margin: 0 5px;
+      appearance: none;
+      background: linear-gradient(to right, #3498db, #3498db 50%, #ecf0f1 50%, #ecf0f1);
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .digit-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+    }
+
+    #phone-display {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    #submit-button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    #submit-button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<div id="phone-input-container">
+  <label for="phone-input">Enter Phone Number:</label>
+  <div id="slider-container"></div>
+  <div id="phone-display">Entered Phone Number: </div>
+  <button id="submit-button" onclick="submitPhoneNumber()">Submit</button>
+</div>
+
+<script>
+  // Function to shuffle an array
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  // Create an array with digits 0 to 9
+  const digits = Array.from({ length: 10 }, (_, i) => i);
+
+  // Shuffle the array to assign random digits to sliders
+  shuffleArray(digits);
+
+  // Display sliders and assign random digits
+  const sliderContainer = document.getElementById('slider-container');
+  digits.forEach((digit, index) => {
+    const slider = document.createElement('input');
+    slider.type = 'range';
+    slider.min = '0';
+    slider.max = '9';
+    slider.step = '1';
+    slider.value = '0';
+    slider.className = 'digit-slider';
+    slider.oninput = () => updatePhoneNumber();
+
+    // Append a hidden input to store the actual value
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.id = `hidden-slider-${index}`;
+    hiddenInput.value = '0';
+
+    sliderContainer.appendChild(slider);
+    sliderContainer.appendChild(hiddenInput);
+  });
+
+  // Function to update the displayed phone number
+  function updatePhoneNumber() {
+    const sliders = document.querySelectorAll('.digit-slider');
+    let phoneNumber = '';
+
+    sliders.forEach((slider, index) => {
+      const hiddenInput = document.getElementById(`hidden-slider-${index}`);
+      hiddenInput.value = slider.value;
+      phoneNumber += hiddenInput.value;
+    });
+
+    document.getElementById('phone-display').textContent = `Entered Phone Number: ${phoneNumber}`;
+  }
+
+  // Function to submit the phone number
+  function submitPhoneNumber() {
+    const sliders = document.querySelectorAll('.digit-slider');
+    let phoneNumber = '';
+
+    sliders.forEach(slider => {
+      phoneNumber += slider.value;
+    });
+
+    alert(`Phone number submitted: ${phoneNumber}`);
+  }
+</script>
+
+</body>
+</html>

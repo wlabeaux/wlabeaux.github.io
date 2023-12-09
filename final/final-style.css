@@ -1,0 +1,32 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2a2828;
+    color: white
+  }
+
+  #phone-input-container {
+    text-align: center;
+  }
+
+  .digit-slider {
+    margin-top: 30px ;
+    width: 20px;
+    margin: 0 5px;
+  }
+
+  #phone-display {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  #submit-button {
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
