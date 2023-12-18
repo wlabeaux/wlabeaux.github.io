@@ -5,12 +5,18 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #2a2828;
-    color: white
+    background-color: #2e2f34;
+    color: black;
   }
 
   #phone-input-container {
     text-align: center;
+    background-color: rgb(174, 249, 249);
+    padding: 20px;
+  }
+  #instructions{
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .digit-slider {
@@ -24,9 +30,19 @@ body {
     font-size: 18px;
   }
 
-  #submit-button {
+  #submit-button,
+  #clear-button {
     margin-top: 30px;
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
+  }
+
+  #hint {
+    position: absolute;
+    bottom: 100px;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    color: #ffffff;
   }

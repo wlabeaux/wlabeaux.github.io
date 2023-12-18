@@ -8,13 +8,14 @@
 </head>
 <body>
     <script defer src="final.js"></script>
-
-
     <div id="phone-input-container">
-      <h2>Enter Phone Number:</h2>
+      <h2>Drag the sliders to enter your phone number:</h2>
+    <div id="instructions">Shouldn't be too hard, just move around the sliders (duh)</div>
       <div id="slider-container"></div>
       <div id="phone-display">Entered Phone Number: </div>
+      <button id="clear-button" onclick="clearPhoneNumber()">Clear</button>
       <button id="submit-button" onclick="submitPhoneNumber()">Submit</button>
+      <div id="hint">Hint: There may be an easier way to move the sliders...</div>
     </div>
   
 </body>

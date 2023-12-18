@@ -1,5 +1,4 @@
 
-  // Create an array with digits 0 to 9
   const digits = Array.from({ length: 10 }, (_, i) => i);
 
   // Display sliders and assign random digits
@@ -24,7 +23,14 @@
     sliderContainer.appendChild(hiddenInput);
   });
 
-  // Function to update the displayed phone number
+  //array of hints to call randomly in function
+  const hints = [
+    "There may be an easier way to move the sliders...",
+    "Try using the arrow keys",
+    "Try clicking the sliders instead of dragging"
+  ];
+
+
   function updatePhoneNumber() {
     const sliders = document.querySelectorAll('.digit-slider');
     let phoneNumber = '';
@@ -38,7 +44,7 @@
     document.getElementById('phone-display').textContent = `Entered Phone Number: ${phoneNumber}`;
   }
 
-  // Function to submit the phone number
+  //functions for buttons
   function submitPhoneNumber() {
     const sliders = document.querySelectorAll('.digit-slider');
     let phoneNumber = '';
@@ -48,4 +54,22 @@
     });
 
     alert(`Phone number submitted: ${phoneNumber}`);
+  }
+
+
+  function clearPhoneNumber() {
+    const sliders = document.querySelectorAll('.digit-slider');
+    sliders.forEach(slider => {
+      slider.value = '0';
+    });
+
+    updatePhoneNumber(); // Update display after clearing
+    showRandomHint();
+  }
+
+  //reworked function from WA10 to show random hint from array of hints
+  function showRandomHint() {
+    const hint = document.getElementById('hint');
+    const randomHint = hints[Math.floor(Math.random() * hints.length)];
+    hint.textContent = `Hint: ${randomHint}`;
   }
