@@ -7,6 +7,10 @@
 <meta name="description" content="Seattle-based creative specializing in sports video production, live content, and social strategy.">
 <link rel="stylesheet" href="css/style.css">
 <style>
+body { min-height: 100vh; display: flex; flex-direction: column; }
+.hero-content { flex: 1; }
+</style>
+<style>
 .nav {
   display: flex; justify-content: space-between; align-items: center;
   padding: 28px 48px;
@@ -25,7 +29,7 @@
 
 .video-wrap {
   position: relative;
-  height: 22vh; min-height: 140px;
+  height: 45vh; min-height: 260px;
   overflow: hidden;
 }
 .hero-video {
@@ -34,7 +38,7 @@
 }
 .video-gradient {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 20%, rgba(13,13,13,0.75) 75%, #0d0d0d 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(13,13,13,0.5) 50%, #0d0d0d 100%);
 }
 
 .hero-content { padding: 32px 48px 56px; }
