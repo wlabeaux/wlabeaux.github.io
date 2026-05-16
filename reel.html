@@ -4,119 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reel — Will Labeaux</title>
-<meta name="description" content="Demo reels by Will Labeaux — Content Producer and Strategist.">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.reel-hero {
-  padding: calc(var(--nav-h) + 60px) 48px 64px;
-}
-.reel-hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(72px, 11vw, 160px);
-  line-height: .88; letter-spacing: .02em;
-  margin-bottom: 16px;
-}
-.reel-hero-title em {
-  font-family: var(--font-serif);
-  font-style: italic; color: var(--accent);
-}
-.reel-hero-sub {
-  font-size: 14px; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* ── REEL BLOCK ── */
 .reel-block {
-  padding: 0 48px 80px;
+  padding: calc(var(--nav-h) + 48px) 48px 64px;
 }
 .reel-block + .reel-block {
   border-top: 1px solid var(--border);
-  padding-top: 80px;
+  padding-top: 48px;
+  padding-bottom: 64px;
 }
-
-.reel-meta {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 28px;
+.reel-label {
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px; display: block;
 }
-.reel-info {}
-.reel-num {
-  font-family: var(--font-display);
-  font-size: 13px; letter-spacing: .2em;
-  color: var(--accent); margin-bottom: 10px;
-}
-.reel-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4vw, 56px);
-  letter-spacing: .04em; line-height: 1;
-}
-.reel-desc {
-  font-size: 13px; color: var(--muted);
-  letter-spacing: .05em; margin-top: 10px;
-}
-.reel-year {
-  font-size: 11px; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--muted);
-}
-
-/* Video container */
 .reel-video {
-  position: relative;
-  width: 100%;
-  background: var(--surface);
-  overflow: hidden;
+  position: relative; width: 100%;
+  background: var(--surface); overflow: hidden;
+  padding-bottom: 56.25%; height: 0;
 }
-
-/* For Cloudinary-hosted videos (native video player) */
-.reel-video video {
-  width: 100%;
-  display: block;
-  max-height: 80vh;
-  object-fit: contain;
-  background: #000;
+.reel-video iframe {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; border: none;
 }
-
-/* For iframe embeds (YouTube / Vimeo) */
-.reel-video.embed {
-  padding-bottom: 56.25%;
-  height: 0;
-}
-.reel-video.embed iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: none;
-}
-
-/* Placeholder state */
-.reel-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: var(--surface);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 16px; color: var(--muted);
-  border: 1px dashed var(--border);
-}
-.reel-placeholder .icon {
-  font-size: 48px; opacity: .3;
-}
-.reel-placeholder p {
-  font-size: 11px; letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
 @media (max-width: 768px) {
-  .reel-hero { padding: calc(var(--nav-h) + 32px) 24px 48px; }
-  .reel-block { padding: 0 24px 60px; }
-  .reel-block + .reel-block { padding-top: 60px; }
-  .reel-meta { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .reel-block { padding: calc(var(--nav-h) + 32px) 24px 48px; }
+  .reel-block + .reel-block { padding-top: 40px; padding-bottom: 48px; }
 }
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
-
 
 <nav>
   <a href="index.html" class="nav-logo">WILL LABEAUX</a>
@@ -128,88 +47,48 @@
   </ul>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="reel-hero">
-  <h1 class="reel-hero-title">DEMO<br><em>Reel.</em></h1>
-  <p class="reel-hero-sub">Content Producer + Strategist &nbsp;·&nbsp; 2025</p>
-</div>
-
-<!-- REEL 01 — YOUR NEW REEL (Cloudinary) -->
-<div class="reel-block reveal">
-  <div class="reel-meta">
-    <div class="reel-info">
-      <div class="reel-num">01 — Producer Reel</div>
-      <div class="reel-title">WILL LABEAUX<br>2025 REEL</div>
-      <div class="reel-desc">Video production · Live content · Social strategy</div>
-    </div>
-    <div class="reel-year">2025</div>
-  </div>
-
-  <!--
-    CLOUDINARY VIDEO:
-    Once you have your Cloudinary URL, replace the src below.
-    Format: https://res.cloudinary.com/YOUR_CLOUD/video/upload/v.../your-reel.mp4
-
-    For best results upload as MP4 (H.264) and add these Cloudinary transformations:
-    /video/upload/q_auto,f_auto/v.../your-reel.mp4
-  -->
-  <div class="reel-video embed" id="reel01">
+<!-- REEL 01 -->
+<div class="reel-block">
+  <span class="reel-label">2025 Football Reel</span>
+  <div class="reel-video">
     <iframe
       src="https://www.youtube.com/embed/-aasl_Y6Sp4"
-      title="Will Labeaux — 2025 Producer Reel"
+      title="2025 Football Reel — Will Labeaux"
       allowfullscreen
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
     ></iframe>
   </div>
 </div>
 
-<!-- REEL 02 — COLORADO BUFFALOES -->
-<div class="reel-block reveal">
-  <div class="reel-meta">
-    <div class="reel-info">
-      <div class="reel-num">02 — Sports Reel</div>
-      <div class="reel-title">COLORADO<br>BUFFALOES</div>
-      <div class="reel-desc">Game-day coverage · Viral campaigns · Athletics content</div>
-    </div>
-    <div class="reel-year">2023 – 2025</div>
-  </div>
-
-  <!--
-    COLORADO REEL:
-    Option A — If you have the video file on Cloudinary, use a <video> tag (same as above)
-    Option B — If it's on YouTube/Vimeo, use the iframe embed below
-    Option C — If it's the Instagram link, use the iframe embed pointed at the reel
-
-    Currently set to your Instagram reel link as a fallback.
-    Best option: upload the MP4 to Cloudinary and use Option A.
-  -->
-  <div class="reel-video embed">
+<!-- REEL 02 -->
+<div class="reel-block">
+  <span class="reel-label">2024 Colorado Football Reel</span>
+  <div class="reel-video">
     <iframe
       src="https://www.youtube.com/embed/ZBSrFwe_TR0"
-      title="Colorado Buffaloes Reel — Will Labeaux"
+      title="2024 Colorado Football Reel — Will Labeaux"
       allowfullscreen
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     ></iframe>
   </div>
 </div>
 
-<!-- CONTACT CTA -->
-<section style="text-align:center; padding:100px 48px; border-top: 1px solid var(--border);">
-  <h2 style="font-family:var(--font-display); font-size:clamp(48px,7vw,96px); line-height:.9; margin-bottom:28px;">
-    LET'S MAKE<br><span style="font-family:var(--font-serif); font-style:italic; color:var(--accent);">Something.</span>
-  </h2>
-  <p style="color:var(--muted); margin-bottom:40px; font-size:15px;">Open to full-time roles, contracts, and game-day coverage.</p>
-  <a href="mailto:w.labeaux@gmail.com" class="btn">Get in Touch <span class="arrow">→</span></a>
-</section>
+<!-- ABOUT CTA -->
+<div style="border-top:1px solid var(--border); padding:64px 48px; display:flex; justify-content:space-between; align-items:center; background:var(--surface); flex-wrap:wrap; gap:32px;">
+  <div>
+    <div style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Learn More</div>
+    <div style="font-family:var(--font-display); font-size:clamp(36px,5vw,56px); letter-spacing:.04em; line-height:1;">ABOUT <span style="font-family:var(--font-serif); font-style:italic; color:var(--accent); font-size:.8em;">Me.</span></div>
+  </div>
+  <a href="about.html" class="btn">View About Page <span class="arrow">→</span></a>
+</div>
 
 <footer class="site-footer">
   <span>© 2025 Will Labeaux</span>
   <span class="footer-logo">WL</span>
   <div class="footer-socials">
-    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
-    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
     <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
