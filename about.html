@@ -7,25 +7,11 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 
-/* ── PAGE HEADER ── */
-.page-header {
-  padding: calc(var(--nav-h) + 64px) 48px 72px;
-  border-bottom: 1px solid var(--border);
-}
-.page-header-title {
-  font-family: var(--font-display);
-  font-size: clamp(72px, 11vw, 160px);
-  line-height: .88; letter-spacing: .02em;
-}
-.page-header-title em {
-  font-family: var(--font-serif);
-  font-style: italic; color: var(--accent);
-}
-
 /* ── BIO SECTION ── */
 .bio-section {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1.6fr 1fr;
   gap: 0;
+  padding-top: var(--nav-h);
 }
 .bio-text-col {
   padding: 80px 64px;
@@ -34,29 +20,33 @@
 }
 .bio-text-col h2 {
   font-family: var(--font-display); font-size: 40px; letter-spacing: .04em;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .bio-text-col h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
 .bio-text-col p { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
 .bio-text-col p:last-of-type { margin-bottom: 36px; }
 .bio-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-.btn-resume {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-  background: var(--accent); color: var(--bg);
-  padding: 15px 28px; font-family: var(--font-body);
-  transition: opacity .2s;
+
+.bio-photo-col {
+  position: relative; overflow: hidden;
+  background: var(--surface2);
+  min-height: 480px;
+  max-height: 600px;
 }
-.btn-resume:hover { opacity: .82; }
+.bio-photo-col img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 10%;
+  filter: grayscale(10%); display: block;
+}
 
 /* ── CONNECT STRIP ── */
 .connect-strip {
   background: var(--surface2);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 48px;
+  padding: 40px 48px;
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 32px;
+  flex-wrap: wrap; gap: 24px;
 }
 .connect-label {
   font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
@@ -83,13 +73,17 @@
 .tool-names { font-family: var(--font-display); font-size: 17px; letter-spacing: .04em; line-height: 1.65; color: var(--text); }
 
 /* ── EDUCATION ── */
-.edu-section {
-  background: var(--surface); padding: 64px 48px;
-  border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+.edu-section { background: var(--surface); padding: 80px 48px; border-top: 1px solid var(--border); }
+.edu-card {
+  background: var(--bg); padding: 36px 32px;
+  border-bottom: 2px solid transparent; transition: border-color .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
 }
-.edu-name { font-family: var(--font-display); font-size: 26px; letter-spacing: .04em; margin-bottom: 8px; }
+.edu-card:hover { border-color: var(--accent); }
+.edu-name { font-family: var(--font-display); font-size: 24px; letter-spacing: .04em; margin-bottom: 8px; }
 .edu-detail { font-size: 13px; color: var(--muted); }
+.edu-degree { font-family: var(--font-display); font-size: 16px; letter-spacing: .06em; color: var(--accent); }
 
 /* ── CONTACT CTA ── */
 .contact-cta {
@@ -114,13 +108,13 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .page-header { padding: calc(var(--nav-h) + 32px) 24px 48px; }
-  .bio-section { grid-template-columns: 1fr; }
+  .bio-section { grid-template-columns: 1fr; padding-top: var(--nav-h); }
   .bio-text-col { padding: 56px 24px; }
-  .connect-strip { padding: 36px 24px; }
+  .bio-photo-col { min-height: 360px; max-height: 420px; }
+  .connect-strip { padding: 32px 24px; }
   .tools-section { padding: 60px 24px; }
   .tools-grid { grid-template-columns: 1fr 1fr; }
-  .edu-section { padding: 48px 24px; }
+  .edu-section { padding: 60px 24px; }
   .contact-cta { padding: 90px 24px; }
 }
 </style>
@@ -139,34 +133,27 @@
   </ul>
 </nav>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <h1 class="page-header-title">ABOUT<br><em>Me.</em></h1>
-</div>
-
 <!-- BIO -->
 <div class="bio-section">
   <div class="bio-text-col reveal">
     <h2>ABOUT <em>Me</em></h2>
     <p>
-      I'm Will — a content producer and strategist with 3+ years of hands-on experience in video production, social-first editing, and live sports coverage. I've worked across the NFL and NCAA, producing content that has reached over 140 million impressions. I own the full pipeline — from concept and camera to edit and delivery — and I thrive where the stakes are highest.
+      Hi! I'm Will, a creative with hands-on experience in sports video production, editing, and social strategy. I've worked in the NFL and NCAA, creating and producing content with over 170 million combined impressions. I own the full production pipeline from pre-pro to camera to edit and delivery — I thrive when the stakes are high.
     </p>
     <p>
-      I got my start producing digital content for CU Boulder before joining Colorado Football and Athletics, where I contributed to some of the most viral content in college sports during the Coach Prime era. Today I'm simultaneously working as a Live Content Correspondent for the NFL at Seattle Seahawks home games and as a Content Specialist at Learfield/UW Athletics, driving fan engagement across athletic social channels.
+      I started outside of sports developing skills and a passion for photography and videography. Then I got my start in Athletics at the University of Colorado, where I contributed to some of the most viral content in sports during the Coach Prime era at CU Football, including Travis Hunter's Heisman Campaign and NFL Draft coverage, among many other recaps and social pieces. Today I work for LEARFIELD at University of Washington as a Social Content Specialist creating sponsored content for Athletic social channels. I simultaneously work as a Live Content Correspondent for the NFL, shooting game days and other events in Seattle.
     </p>
     <p>
-      Outside of work, I love to ski and hike — anything outside, really.
+      Outside of work I love to ski, golf, and hike — anything outside!
     </p>
     <div class="bio-actions">
-      <a href="/WillLabeauxResume.PDF" target="_blank" class="btn-resume">View Résumé ↗</a>
       <a href="index.html#contact" class="btn">Get in Touch <span class="arrow">→</span></a>
     </div>
   </div>
-  <div style="position:relative; min-height:560px; overflow:hidden; background:var(--surface2);">
+  <div class="bio-photo-col">
     <img
       src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778908977/WLHEADSHOT_gpi8e3.jpg"
       alt="Will Labeaux"
-      style="width:100%; height:100%; object-fit:cover; object-position:center 15%; filter:grayscale(10%); display:block;"
     >
   </div>
 </div>
@@ -190,17 +177,17 @@
   </div>
 </div>
 
-<!-- TOOLS -->
+<!-- TOOLS & SKILLS -->
 <div class="tools-section">
   <div class="section-label">Tools & Skills</div>
   <div class="tools-grid">
     <div class="tool-card reveal">
       <div class="tool-cat">Editing</div>
-      <div class="tool-names">Premiere Pro<br>After Effects<br>DaVinci Resolve<br>Motion Design</div>
+      <div class="tool-names">Premiere Pro<br>After Effects<br>Photoshop<br>Motion Design</div>
     </div>
     <div class="tool-card reveal" style="transition-delay:.08s">
       <div class="tool-cat">Production</div>
-      <div class="tool-names">Sony Cinema Systems<br>Camera Operation<br>Set Lighting<br>Photography</div>
+      <div class="tool-names">Sony Cinema Systems<br>Cinematography<br>Set Lighting<br>Photography</div>
     </div>
     <div class="tool-card reveal" style="transition-delay:.16s">
       <div class="tool-cat">Social & Strategy</div>
@@ -215,16 +202,19 @@
 
 <!-- EDUCATION -->
 <div class="edu-section">
-  <div>
-    <div class="edu-name">UNIVERSITY OF COLORADO BOULDER</div>
-    <div class="edu-detail">B.S. Creative Technology and Design &nbsp;·&nbsp; 2021 – 2025</div>
+  <div class="section-label">Education</div>
+  <div class="edu-card reveal">
+    <div>
+      <div class="edu-name">UNIVERSITY OF COLORADO BOULDER</div>
+      <div class="edu-detail">2021 – 2025</div>
+    </div>
+    <div class="edu-degree">B.S. Creative Technology and Design</div>
   </div>
 </div>
 
 <!-- CONTACT CTA -->
 <div class="contact-cta">
   <h2>REACH<br><em>Out.</em></h2>
-  <p>Open to full-time production roles, contracts, and game-day coverage.</p>
   <a href="mailto:w.labeaux@gmail.com" class="btn" style="position:relative;">w.labeaux@gmail.com <span class="arrow">→</span></a>
 </div>
 
