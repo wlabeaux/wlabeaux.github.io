@@ -4,49 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Will Labeaux</title>
-<meta name="description" content="Selected work by Will Labeaux — video production, live content, and social strategy.">
 <link rel="stylesheet" href="css/style.css">
 <style>
 .work-hero {
-  padding: calc(var(--nav-h) + 60px) 48px 80px;
+  padding: calc(var(--nav-h) + 60px) 48px 64px;
+  border-bottom: 1px solid var(--border);
 }
 .work-hero-title {
   font-family: var(--font-display);
   font-size: clamp(72px, 11vw, 160px);
-  line-height: .88; letter-spacing: .02em;
-  margin-bottom: 40px;
+  line-height: .88; letter-spacing: .02em; margin-bottom: 40px;
 }
 .work-hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
 
+/* ── FILTER BAR ── */
 .filter-bar {
-  display: flex; align-items: center; gap: 8px;
-  flex-wrap: wrap; margin-bottom: 72px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
 }
 .filter-btn {
   font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); border: 1px solid var(--border); padding: 9px 20px;
-  background: none; cursor: none; transition: all .2s;
-  font-family: var(--font-body);
+  color: var(--muted); border: 1px solid var(--border); padding: 9px 22px;
+  background: none; cursor: none; transition: all .2s; font-family: var(--font-body);
 }
 .filter-btn:hover, .filter-btn.active {
   color: var(--bg); background: var(--accent); border-color: var(--accent);
 }
 
+/* ── PROJECT GRID (video + ux) ── */
+.projects-wrap { padding: 64px 48px; }
 .all-projects {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 3px;
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px;
 }
-
 .work-card {
-  position: relative; overflow: hidden;
-  background: var(--surface);
+  position: relative; overflow: hidden; background: var(--surface);
 }
 .work-card[data-size="large"]  { grid-column: span 8; height: 520px; }
 .work-card[data-size="medium"] { grid-column: span 4; height: 520px; }
 .work-card[data-size="half"]   { grid-column: span 6; height: 400px; }
 .work-card[data-size="third"]  { grid-column: span 4; height: 360px; }
-
 .work-card img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s;
@@ -60,37 +55,69 @@
   padding: 32px; opacity: .7; transition: opacity .3s;
 }
 .work-card:hover .work-overlay { opacity: 1; }
-.work-cat {
-  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 8px;
-}
-.work-name {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.2vw, 30px); letter-spacing: .04em; line-height: 1.05;
-  margin-bottom: 14px;
-}
-.work-link {
-  font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--muted); display: inline-flex; align-items: center; gap: 8px;
-  transition: color .2s, gap .2s;
-}
+.work-cat { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.work-name { font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 30px); letter-spacing: .04em; line-height: 1.05; margin-bottom: 14px; }
+.work-link { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; transition: color .2s, gap .2s; }
 .work-card:hover .work-link { color: var(--accent); gap: 14px; }
 
+/* ── PHOTO GALLERY (inline, hidden by default) ── */
+.photo-gallery-wrap { padding: 64px 48px; display: none; }
+.photo-gallery-wrap.active { display: block; }
+.gallery-label { margin-bottom: 48px; }
+.masonry {
+  columns: 4; column-gap: 6px;
+}
+.masonry-item {
+  break-inside: avoid; margin-bottom: 6px; overflow: hidden; display: block;
+  position: relative;
+}
+.masonry-item img {
+  width: 100%; display: block;
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
+  filter: grayscale(10%);
+}
+.masonry-item:hover img { transform: scale(1.03); filter: grayscale(0%); }
+
+/* lightbox */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 9990;
+  background: rgba(13,13,13,.97);
+  align-items: center; justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+.lightbox-close {
+  position: absolute; top: 32px; right: 40px;
+  font-family: var(--font-display); font-size: 36px; color: var(--muted);
+  cursor: none; transition: color .2s; line-height: 1;
+}
+.lightbox-close:hover { color: var(--accent); }
+.lightbox-prev, .lightbox-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-size: 48px; color: var(--muted);
+  cursor: none; transition: color .2s; user-select: none;
+}
+.lightbox-prev { left: 32px; }
+.lightbox-next { right: 32px; }
+.lightbox-prev:hover, .lightbox-next:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .work-hero { padding: calc(var(--nav-h) + 32px) 24px 56px; }
+  .work-hero { padding: calc(var(--nav-h) + 32px) 24px 48px; }
+  .projects-wrap { padding: 40px 24px; }
   .all-projects { grid-template-columns: 1fr; }
   .work-card[data-size="large"],
   .work-card[data-size="medium"],
   .work-card[data-size="half"],
-  .work-card[data-size="third"] { grid-column: span 1; height: 300px; }
-  .filter-bar { margin-bottom: 40px; }
+  .work-card[data-size="third"] { grid-column: span 1; height: 280px; }
+  .photo-gallery-wrap { padding: 40px 24px; }
+  .masonry { columns: 2; }
 }
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
-
 
 <nav>
   <a href="index.html" class="nav-logo">WILL LABEAUX</a>
@@ -108,14 +135,17 @@
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="video">Video</button>
     <button class="filter-btn" data-filter="photo">Photo</button>
-    <button class="filter-btn" data-filter="social">Social</button>
     <button class="filter-btn" data-filter="ux">UX Design</button>
   </div>
+</div>
 
+<!-- VIDEO + UX GRID -->
+<div class="projects-wrap" id="projectsWrap">
   <div class="all-projects">
 
-    <div class="work-card reveal" data-category="video photo social" data-size="large">
-      <!-- CLOUDINARY: replace src -->
+    <!-- VIDEO PROJECTS -->
+    <div class="work-card reveal" data-category="video" data-size="large">
+      <!-- CLOUDINARY: replace src with CU hero image -->
       <img src="https://static.wixstatic.com/media/b9baed_55d7b633a3444a7c96876262e0c26e61~mv2.png/v1/fill/w_1200,h_700,al_c,q_85/Screenshot%202025-04-17%20at%202_26_26%E2%80%AFPM.png" alt="Colorado Buffaloes">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography · Social</div>
@@ -124,38 +154,48 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video social" data-size="medium" style="transition-delay:.1s">
-      <!-- CLOUDINARY: replace src -->
-      <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_600,h_700,al_c,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="NFL Seahawks">
+    <div class="work-card reveal" data-category="video" data-size="medium" style="transition-delay:.08s">
+      <!-- CLOUDINARY: replace src with NFL/Seahawks image -->
+      <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_700,h_800,al_c,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="NFL Seahawks">
       <div class="work-overlay">
         <div class="work-cat">Live Content · NFL</div>
         <div class="work-name">Seattle Seahawks — Live Correspondent</div>
-        <a href="projects/nfl-seahawks.html" class="work-link">Coming Soon →</a>
+        <a href="projects/nfl-seahawks.html" class="work-link">View Project →</a>
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video social" data-size="half" style="transition-delay:.1s">
-      <!-- CLOUDINARY: replace src -->
+    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.08s">
+      <!-- CLOUDINARY: replace src with Learfield/UW image -->
       <img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="Learfield UW">
       <div class="work-overlay">
         <div class="work-cat">Social Content · Strategy</div>
         <div class="work-name">Learfield — UW Athletics</div>
-        <a href="projects/learfield-uw.html" class="work-link">Coming Soon →</a>
+        <a href="projects/learfield-uw.html" class="work-link">View Project →</a>
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video photo" data-size="half" style="transition-delay:.15s">
-      <!-- CLOUDINARY: replace src -->
-      <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="CU Police">
+    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.12s">
+      <!-- CLOUDINARY: replace src with Mount Hermon image -->
+      <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="Mount Hermon">
+      <div class="work-overlay">
+        <div class="work-cat">Video · Photography</div>
+        <div class="work-name">Mount Hermon Camps</div>
+        <a href="projects/mount-hermon.html" class="work-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.16s">
+      <!-- CLOUDINARY: replace src with CU Police image -->
+      <img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="CU Police">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography</div>
         <div class="work-name">CU Police Department</div>
-        <a href="projects/cu-police.html" class="work-link">Coming Soon →</a>
+        <a href="projects/cu-police.html" class="work-link">View Project →</a>
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.1s">
-      <!-- CLOUDINARY: replace src -->
+    <!-- UX PROJECTS -->
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.08s">
       <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/fill/w_600,h_500,al_c,q_85/onlyscreen.png" alt="HikeBite">
       <div class="work-overlay">
         <div class="work-cat">UX Design · iOS</div>
@@ -164,8 +204,7 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.15s">
-      <!-- CLOUDINARY: replace src -->
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.12s">
       <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/newHeroImage_edited.jpg" alt="Denver Zoo">
       <div class="work-overlay">
         <div class="work-cat">UX Design · Web</div>
@@ -174,56 +213,113 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.2s">
-      <!-- CLOUDINARY: replace src -->
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.16s">
       <img src="https://static.wixstatic.com/media/b9baed_1e728e8818694b4dbaee7647423b0ac1~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/Screenshot%202023-12-30%20at%202_29_edited.jpg" alt="Rooted App">
       <div class="work-overlay">
         <div class="work-cat">UX Design · Mobile</div>
         <div class="work-name">Rooted App Design</div>
-        <a href="projects/rooted.html" class="work-link">Coming Soon →</a>
+        <a href="projects/rooted.html" class="work-link">View Project →</a>
       </div>
     </div>
 
-    <!--
-      ═══════════════════════════════════════════
-      ADD NEW PROJECTS HERE — copy this block:
-
-      <div class="work-card reveal" data-category="video" data-size="half">
-        <img src="YOUR_CLOUDINARY_URL" alt="Project Name">
-        <div class="work-overlay">
-          <div class="work-cat">Category</div>
-          <div class="work-name">Project Title</div>
-          <a href="projects/slug.html" class="work-link">View Project →</a>
-        </div>
-      </div>
-      ═══════════════════════════════════════════
-    -->
-
   </div>
+</div>
+
+<!-- PHOTO GALLERY (inline, shown when Photo filter active) -->
+<div class="photo-gallery-wrap" id="photoGallery">
+  <div class="section-label gallery-label">Photography</div>
+  <div class="masonry" id="masonryGrid">
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_900,h_600,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_e12be3df5f12407bbc94bd5653298830~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_e12be3df5f12407bbc94bd5653298830~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_9028494b582848b79372642562f9ce0e~mv2.jpg/v1/fill/w_900,h_540,q_90/b9baed_9028494b582848b79372642562f9ce0e~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_be0b95eaf5bc412492d3d81125bf2e15~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_be0b95eaf5bc412492d3d81125bf2e15~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_76a80ac5dd0f41eda1e0efc0abca96b7~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_76a80ac5dd0f41eda1e0efc0abca96b7~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_303d662e4e974a5cb352c8f98b11e83b~mv2.jpg/v1/fill/w_900,h_580,q_90/b9baed_303d662e4e974a5cb352c8f98b11e83b~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_be5a14e9848a4d0ab7007adb1909ebb8~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_be5a14e9848a4d0ab7007adb1909ebb8~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_a11d5f8021a7457bb90d0f6295dfdd6b~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_a11d5f8021a7457bb90d0f6295dfdd6b~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_cd5ed5f8934549eeb6fb72bfa3047871~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_cd5ed5f8934549eeb6fb72bfa3047871~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_3b03bd9590eb4220949a96ff601bf4ac~mv2.jpg/v1/fill/w_900,h_620,q_90/b9baed_3b03bd9590eb4220949a96ff601bf4ac~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_b158841739c244c98c95ca8e0e65cd3b~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_b158841739c244c98c95ca8e0e65cd3b~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_e15d1b97990b4511ae7fba3f686b98af~mv2.jpg/v1/fill/w_900,h_1100,q_90/b9baed_e15d1b97990b4511ae7fba3f686b98af~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_a60fb9643a6745ea97dd4f4cf13c8ffb~mv2.jpg/v1/fill/w_900,h_1350,q_90/b9baed_a60fb9643a6745ea97dd4f4cf13c8ffb~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_775677134e3f4b819db81035475fbe6c~mv2.jpg/v1/fill/w_900,h_600,q_90/b9baed_775677134e3f4b819db81035475fbe6c~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_453195fb46d840258220810c2c283fd2~mv2.jpg/v1/fill/w_900,h_600,q_90/b9baed_453195fb46d840258220810c2c283fd2~mv2.jpg" alt="Photo"></div>
+    <div class="masonry-item"><img src="https://static.wixstatic.com/media/b9baed_1ef8e13c42594a9ab7b70f9b6ec9f69f~mv2.jpg/v1/fill/w_900,h_1200,q_90/b9baed_1ef8e13c42594a9ab7b70f9b6ec9f69f~mv2.jpg" alt="Photo"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">✕</span>
+  <span class="lightbox-prev" id="lbPrev">←</span>
+  <img src="" alt="" id="lbImg">
+  <span class="lightbox-next" id="lbNext">→</span>
 </div>
 
 <footer class="site-footer">
   <span>© 2025 Will Labeaux</span>
   <span class="footer-logo">WL</span>
   <div class="footer-socials">
-    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
-    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
     <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
 <script>
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  // ── Filter logic ──
+  const btns = document.querySelectorAll('.filter-btn');
+  const projectsWrap = document.getElementById('projectsWrap');
+  const photoGallery = document.getElementById('photoGallery');
+
+  btns.forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const f = btn.dataset.filter;
-      document.querySelectorAll('.work-card').forEach(card => {
-        const cats = card.dataset.category || '';
-        card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
-      });
+
+      if (f === 'photo') {
+        projectsWrap.style.display = 'none';
+        photoGallery.classList.add('active');
+      } else {
+        projectsWrap.style.display = 'block';
+        photoGallery.classList.remove('active');
+        document.querySelectorAll('.work-card').forEach(card => {
+          const cats = card.dataset.category || '';
+          card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
+        });
+      }
     });
+  });
+
+  // ── Lightbox ──
+  const imgs = Array.from(document.querySelectorAll('.masonry-item img'));
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  let current = 0;
+
+  function openLb(i) {
+    current = i;
+    lbImg.src = imgs[i].src;
+    lb.classList.add('open');
+  }
+  function closeLb() { lb.classList.remove('open'); lbImg.src = ''; }
+
+  imgs.forEach((img, i) => img.parentElement.addEventListener('click', () => openLb(i)));
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', () => openLb((current - 1 + imgs.length) % imgs.length));
+  document.getElementById('lbNext').addEventListener('click', () => openLb((current + 1) % imgs.length));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') openLb((current - 1 + imgs.length) % imgs.length);
+    if (e.key === 'ArrowRight') openLb((current + 1) % imgs.length);
   });
 </script>
 </body>

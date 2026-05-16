@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CU Police Department — Will Labeaux</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.proj-hero { height: 90vh; min-height: 560px; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+.proj-hero-bg { position: absolute; inset: 0; background: url('https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_1600,h_900,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg') center/cover no-repeat; filter: grayscale(20%); }
+.proj-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.97) 0%, rgba(13,13,13,.3) 55%, transparent 100%); }
+.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 72px; width: 100%; }
+.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; transition: color .2s; }
+.proj-back:hover { color: var(--accent); }
+.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.proj-title { font-family: var(--font-display); font-size: clamp(52px, 8vw, 112px); line-height: .9; }
+.proj-meta { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+.meta-item { padding: 32px 40px; border-right: 1px solid var(--border); }
+.meta-item:last-child { border-right: none; }
+.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.meta-value { font-family: var(--font-display); font-size: 18px; letter-spacing: .06em; }
+.proj-body { max-width: 780px; margin: 0 auto; padding: 100px 48px; }
+.proj-body h2 { font-family: var(--font-display); font-size: 42px; letter-spacing: .04em; margin-bottom: 24px; margin-top: 64px; }
+.proj-body h2:first-child { margin-top: 0; }
+.proj-body h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.proj-body p { font-size: 16px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.proj-media { padding: 0 48px 80px; }
+.media-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+.media-grid-2 img { width: 100%; height: 380px; object-fit: cover; display: block; }
+.next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
+.next-project:hover { background: var(--surface); }
+.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.next-title { font-family: var(--font-display); font-size: clamp(28px,4vw,52px); letter-spacing: .04em; }
+.next-arrow { font-family: var(--font-display); font-size: 48px; color: var(--muted); transition: color .3s, transform .3s; }
+.next-project:hover .next-arrow { color: var(--accent); transform: translateX(8px); }
+@media (max-width: 900px) {
+  .proj-hero-content { padding: 0 24px 56px; }
+  .proj-meta { grid-template-columns: 1fr 1fr; }
+  .proj-body { padding: 60px 24px; }
+  .proj-media { padding: 0 24px 60px; }
+  .media-grid-2 { grid-template-columns: 1fr; }
+  .media-grid-2 img { height: 260px; }
+  .next-project { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="../index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="../reel.html">Reel</a></li>
+    <li><a href="../work.html" class="active">Work</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <a href="../work.html" class="proj-back">← All Work</a>
+    <div class="proj-cat">Video · Photography</div>
+    <h1 class="proj-title">CU POLICE<br>DEPARTMENT</h1>
+  </div>
+</div>
+<div class="proj-meta">
+  <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">CU Boulder PD</div></div>
+  <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2021 – 2023</div></div>
+  <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Digital Content Intern</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Premiere · Photoshop</div></div>
+</div>
+<div class="proj-body">
+  <h2>The <em>Role</em></h2>
+  <p>As Digital Content Intern for the University of Colorado Boulder Police Department, I planned and produced content for CUPD's social channels and website — keeping the university community informed and engaged through video, photo, and branded materials.</p>
+  <h2>The <em>Work</em></h2>
+  <p>Working independently in a high-pressure, fast-paced public communications environment, I managed public information campaigns from concept through delivery. This role shaped my ability to produce professional, deadline-driven content under pressure — skills that transferred directly into sports media.</p>
+</div>
+<div class="proj-media">
+  <!-- CLOUDINARY: Add your CUPD photos/videos here -->
+  <div class="media-grid-2 reveal">
+    <img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_900,h_600,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="CU Police">
+    <img src="https://static.wixstatic.com/media/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg/v1/fill/w_900,h_600,q_90/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg" alt="CU Police">
+  </div>
+</div>
+<a href="nfl-seahawks.html" class="next-project hover-target">
+  <div><div class="next-label">Next Project</div><div class="next-title">SEATTLE SEAHAWKS</div></div>
+  <div class="next-arrow">→</div>
+</a>
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span><span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
