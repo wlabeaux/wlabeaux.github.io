@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Will Labeaux</title>
+<meta name="description" content="Selected work by Will Labeaux — video production, live content, and social strategy.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.work-hero {
+  padding: calc(var(--nav-h) + 60px) 48px 80px;
+}
+.work-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 11vw, 160px);
+  line-height: .88; letter-spacing: .02em;
+  margin-bottom: 40px;
+}
+.work-hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+
+.filter-bar {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; margin-bottom: 72px;
+}
+.filter-btn {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border); padding: 9px 20px;
+  background: none; cursor: none; transition: all .2s;
+  font-family: var(--font-body);
+}
+.filter-btn:hover, .filter-btn.active {
+  color: var(--bg); background: var(--accent); border-color: var(--accent);
+}
+
+.all-projects {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3px;
+}
+
+.work-card {
+  position: relative; overflow: hidden;
+  background: var(--surface);
+}
+.work-card[data-size="large"]  { grid-column: span 8; height: 520px; }
+.work-card[data-size="medium"] { grid-column: span 4; height: 520px; }
+.work-card[data-size="half"]   { grid-column: span 6; height: 400px; }
+.work-card[data-size="third"]  { grid-column: span 4; height: 360px; }
+
+.work-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s;
+  filter: grayscale(15%);
+}
+.work-card:hover img { transform: scale(1.05); filter: grayscale(0%); }
+.work-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,.95) 0%, rgba(13,13,13,.05) 50%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 32px; opacity: .7; transition: opacity .3s;
+}
+.work-card:hover .work-overlay { opacity: 1; }
+.work-cat {
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.work-name {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 30px); letter-spacing: .04em; line-height: 1.05;
+  margin-bottom: 14px;
+}
+.work-link {
+  font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--muted); display: inline-flex; align-items: center; gap: 8px;
+  transition: color .2s, gap .2s;
+}
+.work-card:hover .work-link { color: var(--accent); gap: 14px; }
+
+@media (max-width: 900px) {
+  .work-hero { padding: calc(var(--nav-h) + 32px) 24px 56px; }
+  .all-projects { grid-template-columns: 1fr; }
+  .work-card[data-size="large"],
+  .work-card[data-size="medium"],
+  .work-card[data-size="half"],
+  .work-card[data-size="third"] { grid-column: span 1; height: 300px; }
+  .filter-bar { margin-bottom: 40px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="reel.html">Reel</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="work-hero">
+  <h1 class="work-hero-title">ALL<br><em>Work</em></h1>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="video">Video</button>
+    <button class="filter-btn" data-filter="photo">Photo</button>
+    <button class="filter-btn" data-filter="social">Social</button>
+    <button class="filter-btn" data-filter="ux">UX Design</button>
+  </div>
+
+  <div class="all-projects">
+
+    <div class="work-card reveal" data-category="video photo social" data-size="large">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_55d7b633a3444a7c96876262e0c26e61~mv2.png/v1/fill/w_1200,h_700,al_c,q_85/Screenshot%202025-04-17%20at%202_26_26%E2%80%AFPM.png" alt="Colorado Buffaloes">
+      <div class="work-overlay">
+        <div class="work-cat">Video · Photography · Social</div>
+        <div class="work-name">Colorado Buffaloes — Football + Athletics</div>
+        <a href="projects/colorado-buffs.html" class="work-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="video social" data-size="medium" style="transition-delay:.1s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_600,h_700,al_c,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="NFL Seahawks">
+      <div class="work-overlay">
+        <div class="work-cat">Live Content · NFL</div>
+        <div class="work-name">Seattle Seahawks — Live Correspondent</div>
+        <a href="projects/nfl-seahawks.html" class="work-link">Coming Soon →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="video social" data-size="half" style="transition-delay:.1s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="Learfield UW">
+      <div class="work-overlay">
+        <div class="work-cat">Social Content · Strategy</div>
+        <div class="work-name">Learfield — UW Athletics</div>
+        <a href="projects/learfield-uw.html" class="work-link">Coming Soon →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="video photo" data-size="half" style="transition-delay:.15s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="CU Police">
+      <div class="work-overlay">
+        <div class="work-cat">Video · Photography</div>
+        <div class="work-name">CU Police Department</div>
+        <a href="projects/cu-police.html" class="work-link">Coming Soon →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.1s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/fill/w_600,h_500,al_c,q_85/onlyscreen.png" alt="HikeBite">
+      <div class="work-overlay">
+        <div class="work-cat">UX Design · iOS</div>
+        <div class="work-name">HikeBite iOS App</div>
+        <a href="projects/hikebite.html" class="work-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.15s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/newHeroImage_edited.jpg" alt="Denver Zoo">
+      <div class="work-overlay">
+        <div class="work-cat">UX Design · Web</div>
+        <div class="work-name">Denver Zoo Redesign</div>
+        <a href="projects/denver-zoo.html" class="work-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.2s">
+      <!-- CLOUDINARY: replace src -->
+      <img src="https://static.wixstatic.com/media/b9baed_1e728e8818694b4dbaee7647423b0ac1~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/Screenshot%202023-12-30%20at%202_29_edited.jpg" alt="Rooted App">
+      <div class="work-overlay">
+        <div class="work-cat">UX Design · Mobile</div>
+        <div class="work-name">Rooted App Design</div>
+        <a href="projects/rooted.html" class="work-link">Coming Soon →</a>
+      </div>
+    </div>
+
+    <!--
+      ═══════════════════════════════════════════
+      ADD NEW PROJECTS HERE — copy this block:
+
+      <div class="work-card reveal" data-category="video" data-size="half">
+        <img src="YOUR_CLOUDINARY_URL" alt="Project Name">
+        <div class="work-overlay">
+          <div class="work-cat">Category</div>
+          <div class="work-name">Project Title</div>
+          <a href="projects/slug.html" class="work-link">View Project →</a>
+        </div>
+      </div>
+      ═══════════════════════════════════════════
+    -->
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.work-card').forEach(card => {
+        const cats = card.dataset.category || '';
+        card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

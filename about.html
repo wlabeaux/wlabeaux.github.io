@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Will Labeaux</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-hero {
+  padding: calc(var(--nav-h) + 60px) 48px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+}
+.about-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 10vw, 140px);
+  line-height: .88;
+}
+.about-hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.about-hero-right { padding-bottom: 8px; }
+.about-hero-text { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 32px; }
+
+.about-body-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+  margin-bottom: 3px;
+}
+.about-photo-block { position: relative; height: 600px; overflow: hidden; }
+.about-photo-block img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: grayscale(10%); transition: filter .5s;
+}
+.about-photo-block:hover img { filter: grayscale(0%); }
+
+.about-detail-block {
+  background: var(--surface); padding: 64px 56px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.about-detail-block h2 {
+  font-family: var(--font-display); font-size: 42px; letter-spacing: .04em;
+  margin-bottom: 28px;
+}
+.about-detail-block h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.about-detail-block p { font-size: 15px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+
+/* Experience list */
+.exp-section { background: var(--surface2); padding: 80px 48px; }
+.exp-list { list-style: none; margin-top: 0; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 28px 0; border-bottom: 1px solid var(--border);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-role { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.exp-org { font-size: 13px; color: var(--accent); margin-bottom: 10px; letter-spacing: .04em; }
+.exp-bullets { list-style: none; }
+.exp-bullets li {
+  font-size: 13px; line-height: 1.7; color: var(--muted);
+  padding-left: 16px; position: relative; margin-bottom: 4px;
+}
+.exp-bullets li::before {
+  content: '—'; position: absolute; left: 0; color: var(--border);
+}
+.exp-year { font-size: 11px; color: var(--muted); letter-spacing: .1em; white-space: nowrap; padding-top: 4px; }
+
+/* Tools grid */
+.tools-section { background: var(--surface); padding: 80px 48px; }
+.tools-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; }
+.tool-card {
+  background: var(--bg); padding: 36px 28px;
+  border-bottom: 2px solid transparent; transition: border-color .3s;
+}
+.tool-card:hover { border-color: var(--accent); }
+.tool-cat { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.tool-names { font-family: var(--font-display); font-size: 18px; letter-spacing: .05em; line-height: 1.5; color: var(--text); }
+
+/* Stats row */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-block { padding: 48px; border-right: 1px solid var(--border); text-align: center; }
+.stat-block:last-child { border-right: none; }
+.stat-big { font-family: var(--font-display); font-size: clamp(48px, 5vw, 72px); color: var(--accent); line-height: 1; margin-bottom: 10px; }
+.stat-desc { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .about-hero { grid-template-columns: 1fr; gap: 40px; padding: calc(var(--nav-h) + 32px) 24px 56px; }
+  .about-body-grid { grid-template-columns: 1fr; }
+  .about-photo-block { height: 360px; }
+  .about-detail-block { padding: 48px 24px; }
+  .exp-section { padding: 60px 24px; }
+  .exp-item { grid-template-columns: 1fr; gap: 4px; }
+  .tools-section { padding: 60px 24px; }
+  .tools-grid { grid-template-columns: 1fr 1fr; }
+  .stats-row { grid-template-columns: 1fr; }
+  .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="reel.html">Reel</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="about-hero">
+  <h1 class="about-hero-title">WILL<br>LA<em>beaux</em></h1>
+  <div class="about-hero-right reveal">
+    <p class="about-hero-text">
+      Content producer and strategist with a proven track record in sports media — specializing in live game-day production, fast-turnaround social content, and high-impact video from concept through delivery. Currently producing for the NFL and Learfield/UW Athletics.
+    </p>
+    <a href="index.html#contact" class="btn">Get in Touch <span class="arrow">→</span></a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-block reveal">
+    <div class="stat-big">60M+</div>
+    <div class="stat-desc">Views generated across<br>CU Athletics social channels</div>
+  </div>
+  <div class="stat-block reveal" style="transition-delay:.1s">
+    <div class="stat-big">4.6M</div>
+    <div class="stat-desc">Likes across sports<br>social content</div>
+  </div>
+  <div class="stat-block reveal" style="transition-delay:.2s">
+    <div class="stat-big">31M+</div>
+    <div class="stat-desc">Impressions at<br>Learfield / UW Athletics</div>
+  </div>
+</div>
+
+<div class="about-body-grid">
+  <div class="about-photo-block">
+    <!-- CLOUDINARY: replace src -->
+    <img src="https://static.wixstatic.com/media/b9baed_1f22c178bea74a348fb1368f3f0e2560~mv2.jpg/v1/crop/x_1764,y_0,w_4665,h_5464/fill/w_800,h_1000,al_c,q_80/2025%20Media%20Day%20Thunderchute%20-%20BTS-56_Original.jpg" alt="Will Labeaux on set">
+  </div>
+  <div class="about-detail-block reveal">
+    <h2>THE <em>Producer</em></h2>
+    <p>
+      I'm Will — a content producer who thrives where the pressure is highest. I got my start managing social content for the CU Boulder Police Department before joining Colorado Football and Athletics, where I rose to Senior Creative Intern and helped produce some of the most viral content in college sports — including the Travis Hunter Heisman Campaign and NFL Draft coverage.
+    </p>
+    <p>
+      Today I'm working simultaneously as a Live Content Correspondent for the NFL covering Seattle Seahawks home games and as a Social Content Specialist at Learfield/UW Athletics. I own the full production pipeline — from ideation and camera operation to editing, motion graphics, and delivery.
+    </p>
+    <p>
+      I've mentored creative interns, led on-set production for media days and recruiting visits, and built content calendars that drive real audience growth. I work fast, stay calm under pressure, and never miss a deadline.
+    </p>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="exp-section">
+  <div class="section-label">Experience</div>
+  <ul class="exp-list">
+
+    <li class="exp-item reveal">
+      <div>
+        <div class="exp-role">Live Content Correspondent</div>
+        <div class="exp-org">National Football League — Seattle Seahawks</div>
+        <ul class="exp-bullets">
+          <li>Capturing live game-day photo, video, and social content for all Seahawks home games and events</li>
+          <li>High-impact real-time social strategy and creative problem-solving in fast-paced live environment</li>
+        </ul>
+      </div>
+      <div class="exp-year">Aug 2025 – Present</div>
+    </li>
+
+    <li class="exp-item reveal" style="transition-delay:.05s">
+      <div>
+        <div class="exp-role">Social Content Specialist</div>
+        <div class="exp-org">Learfield — University of Washington Athletics</div>
+        <ul class="exp-bullets">
+          <li>Producing original and branded video and social content driving fan engagement and revenue across UW Athletics channels</li>
+          <li>Collaborated to execute a robust content calendar resulting in 31M+ impressions</li>
+          <li>Full production ownership from concept through final delivery — writing, shooting, editing, and branded/NIL content</li>
+        </ul>
+      </div>
+      <div class="exp-year">Aug 2025 – Present</div>
+    </li>
+
+    <li class="exp-item reveal" style="transition-delay:.1s">
+      <div>
+        <div class="exp-role">Senior Creative Intern</div>
+        <div class="exp-org">University of Colorado Football + Athletics</div>
+        <ul class="exp-bullets">
+          <li>Planned, produced, and edited hundreds of high-impact video, photo, and social pieces for CU Football and Athletics</li>
+          <li>Contributed to viral content generating 60M+ views and 4.6M likes across athletics channels</li>
+          <li>Key contributor on Travis Hunter Heisman Campaign, NFL Draft Coverage, and multiple recruiting announcements</li>
+          <li>Led on-set shoots including recruiting visits and media days</li>
+          <li>Mentored and managed 3 creative interns across video, photo, and social strategy</li>
+        </ul>
+      </div>
+      <div class="exp-year">May 2023 – Aug 2025</div>
+    </li>
+
+    <li class="exp-item reveal" style="transition-delay:.15s">
+      <div>
+        <div class="exp-role">Digital Content Intern</div>
+        <div class="exp-org">University of Colorado Boulder Police Department</div>
+        <ul class="exp-bullets">
+          <li>Planned and produced content for CUPD social channels and website</li>
+          <li>Independently managed public information campaigns producing video, photo, and branding materials</li>
+          <li>Operated in a high-pressure, fast-paced public communications environment</li>
+        </ul>
+      </div>
+      <div class="exp-year">Aug 2021 – Aug 2023</div>
+    </li>
+
+  </ul>
+</div>
+
+<!-- TOOLS -->
+<div class="tools-section">
+  <div class="section-label">Tools & Skills</div>
+  <div class="tools-grid">
+    <div class="tool-card reveal">
+      <div class="tool-cat">Editing</div>
+      <div class="tool-names">Premiere Pro<br>After Effects<br>DaVinci Resolve</div>
+    </div>
+    <div class="tool-card reveal" style="transition-delay:.08s">
+      <div class="tool-cat">Production</div>
+      <div class="tool-names">Camera Operation<br>Set Lighting<br>Live-Cut / Clipro</div>
+    </div>
+    <div class="tool-card reveal" style="transition-delay:.16s">
+      <div class="tool-cat">Photo</div>
+      <div class="tool-names">Lightroom<br>Photoshop<br>Photography</div>
+    </div>
+    <div class="tool-card reveal" style="transition-delay:.24s">
+      <div class="tool-cat">Strategy</div>
+      <div class="tool-names">Social Strategy<br>Asana / AirTable<br>WSC Sports</div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div style="background:var(--bg); padding: 80px 48px; border-top: 1px solid var(--border);">
+  <div class="section-label">Education</div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:16px;">
+    <div>
+      <div style="font-family:var(--font-display); font-size:28px; letter-spacing:.04em; margin-bottom:8px;">UNIVERSITY OF COLORADO BOULDER</div>
+      <div style="font-size:14px; color:var(--muted);">B.S. College of Engineering — Creative Technology and Design &nbsp;·&nbsp; 2021–2025</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT CTA -->
+<section style="text-align:center; padding: 120px 48px; background: var(--surface); position:relative; overflow:hidden;">
+  <div class="section-label center">Available Now</div>
+  <h2 style="font-family:var(--font-display); font-size:clamp(56px,8vw,110px); line-height:.9; margin-bottom:32px;">
+    REACH<br><span style="font-family:var(--font-serif); font-style:italic; color:var(--accent);">Out.</span>
+  </h2>
+  <p style="color:var(--muted); margin-bottom:40px; font-size:15px;">Open to full-time production roles, contracts, and game-day coverage.</p>
+  <a href="mailto:w.labeaux@gmail.com" class="btn">w.labeaux@gmail.com <span class="arrow">→</span></a>
+</section>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

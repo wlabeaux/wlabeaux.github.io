@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denver Zoo Redesign — Will Labeaux</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.proj-hero { height: 90vh; min-height: 560px; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+.proj-hero-bg { position: absolute; inset: 0; background: url('https://static.wixstatic.com/media/b9baed_c944e270f98047288b750b946911026e~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_80/Screenshot%202023-12-09%20at%203_37_edited.jpg') center/cover no-repeat; filter: grayscale(15%); opacity: .75; }
+.proj-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.98) 0%, rgba(13,13,13,.4) 50%, rgba(13,13,13,.1) 100%); }
+.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 72px; width: 100%; }
+.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; transition: color .2s; }
+.proj-back:hover { color: var(--accent); }
+.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.proj-title { font-family: var(--font-display); font-size: clamp(52px, 8vw, 112px); line-height: .9; }
+.proj-meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+.meta-item { padding: 32px 40px; border-right: 1px solid var(--border); }
+.meta-item:last-child { border-right: none; }
+.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.meta-value { font-family: var(--font-display); font-size: 18px; letter-spacing: .06em; }
+.proj-body { max-width: 780px; margin: 0 auto; padding: 100px 48px; }
+.proj-body h2 { font-family: var(--font-display); font-size: 42px; letter-spacing: .04em; margin-bottom: 24px; margin-top: 64px; }
+.proj-body h2:first-child { margin-top: 0; }
+.proj-body h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.proj-body p { font-size: 16px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.proj-media { padding: 0 48px 80px; }
+.media-full { width: 100%; margin-bottom: 3px; overflow: hidden; }
+.media-full img { width: 100%; display: block; transition: transform .6s ease; }
+.media-full:hover img { transform: scale(1.02); }
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+.ba-block { position: relative; overflow: hidden; }
+.ba-block img { width: 100%; height: 400px; object-fit: cover; object-position: top; display: block; }
+.ba-label { position: absolute; top: 20px; left: 20px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; background: rgba(13,13,13,.85); color: var(--accent); padding: 6px 14px; }
+.outcomes { background: var(--surface); padding: 80px 48px; }
+.outcomes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; margin-top: 48px; }
+.outcome-card { background: var(--bg); padding: 40px 32px; }
+.outcome-num { font-family: var(--font-display); font-size: 56px; color: var(--accent); line-height: 1; margin-bottom: 12px; }
+.outcome-desc { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
+.next-project:hover { background: var(--surface); }
+.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.next-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 52px); letter-spacing: .04em; }
+.next-arrow { font-family: var(--font-display); font-size: 48px; color: var(--muted); transition: color .3s, transform .3s; }
+.next-project:hover .next-arrow { color: var(--accent); transform: translateX(8px); }
+@media (max-width: 900px) {
+  .proj-hero-content { padding: 0 24px 56px; }
+  .proj-meta { grid-template-columns: 1fr 1fr; }
+  .proj-body { padding: 60px 24px; }
+  .proj-media { padding: 0 24px 60px; }
+  .before-after { grid-template-columns: 1fr; }
+  .ba-block img { height: 280px; }
+  .outcomes { padding: 60px 24px; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .next-project { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="../reel.html">Reel</a></li>
+    <li><a href="../work.html" class="active">Work</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <a href="../work.html" class="proj-back">← All Work</a>
+    <div class="proj-cat">UX Design · Web Experience</div>
+    <h1 class="proj-title">DENVER ZOO<br>REDESIGN</h1>
+  </div>
+</div>
+
+<div class="proj-meta">
+  <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">Web Redesign</div></div>
+  <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2023</div></div>
+  <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">UX / UI Designer</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Research</div></div>
+</div>
+
+<div class="proj-body">
+  <h2>The <em>Challenge</em></h2>
+  <p>The Denver Zoo's existing website struggled with navigation complexity, outdated visual design, and a poor mobile experience — creating friction for visitors trying to plan a trip or find basic information.</p>
+  <p>The redesign focused on streamlining the visitor journey, bringing warmth and life to the visual experience, and creating a design system that scales across the full site.</p>
+  <h2>My <em>Approach</em></h2>
+  <p>Starting with a heuristic evaluation and user flow analysis, I identified key drop-off points and confusing navigation patterns. From there I developed a new information architecture and high-fidelity design explorations that leaned into nature-forward visual language — rich photography, organic shapes, and a warmer color palette.</p>
+</div>
+
+<div class="proj-media">
+  <div class="before-after reveal">
+    <div class="ba-block">
+      <img src="https://static.wixstatic.com/media/b9baed_c944e270f98047288b750b946911026e~mv2.jpg/v1/fill/w_900,h_560,al_c,q_80/Screenshot%202023-12-09%20at%203_37_edited.jpg" alt="Before">
+      <div class="ba-label">Before</div>
+    </div>
+    <div class="ba-block">
+      <img src="https://static.wixstatic.com/media/b9baed_1e728e8818694b4dbaee7647423b0ac1~mv2.jpg/v1/fill/w_900,h_560,al_c,q_80/Screenshot%202023-12-30%20at%202_29_edited.jpg" alt="After">
+      <div class="ba-label" style="color:var(--accent);">After</div>
+    </div>
+  </div>
+  <div class="media-full reveal">
+    <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_1600,h_800,al_c,q_80/newHeroImage_edited.jpg" alt="Denver Zoo full view">
+  </div>
+</div>
+
+<div class="outcomes">
+  <div class="section-label">Key Outcomes</div>
+  <div class="outcomes-grid">
+    <div class="outcome-card reveal"><div class="outcome-num">↓40%</div><div class="outcome-desc">Reduction in navigation steps to reach key visitor info pages.</div></div>
+    <div class="outcome-card reveal" style="transition-delay:.1s"><div class="outcome-num">3×</div><div class="outcome-desc">Faster time-to-ticket from homepage to purchase flow.</div></div>
+    <div class="outcome-card reveal" style="transition-delay:.2s"><div class="outcome-num">100%</div><div class="outcome-desc">Mobile-first design system built for all screen sizes.</div></div>
+  </div>
+  <p style="font-size:12px; color:var(--muted); margin-top:24px;">* Based on prototype usability testing, not live deployment.</p>
+</div>
+
+<a href="colorado-buffs.html" class="next-project hover-target">
+  <div><div class="next-label">Next Project</div><div class="next-title">COLORADO BUFFALOES</div></div>
+  <div class="next-arrow">→</div>
+</a>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

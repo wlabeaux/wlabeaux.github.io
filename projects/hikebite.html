@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HikeBite iOS App — Will Labeaux</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.proj-hero { height: 90vh; min-height: 560px; position: relative; overflow: hidden; display: flex; align-items: flex-end; background: #0a1a0a; }
+.proj-hero-bg { position: absolute; inset: 0; background: url('https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_80/newHeroImage_edited.jpg') center/cover no-repeat; filter: grayscale(10%); opacity: .7; }
+.proj-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.98) 0%, rgba(13,13,13,.4) 50%, rgba(13,13,13,.2) 100%); }
+.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 72px; width: 100%; }
+.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; transition: color .2s; }
+.proj-back:hover { color: var(--accent); }
+.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.proj-title { font-family: var(--font-display); font-size: clamp(52px, 8vw, 112px); line-height: .9; letter-spacing: .02em; }
+.proj-meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+.meta-item { padding: 32px 40px; border-right: 1px solid var(--border); }
+.meta-item:last-child { border-right: none; }
+.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.meta-value { font-family: var(--font-display); font-size: 18px; letter-spacing: .06em; }
+.proj-body { max-width: 780px; margin: 0 auto; padding: 100px 48px; }
+.proj-body h2 { font-family: var(--font-display); font-size: 42px; letter-spacing: .04em; margin-bottom: 24px; margin-top: 64px; }
+.proj-body h2:first-child { margin-top: 0; }
+.proj-body h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.proj-body p { font-size: 16px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+.proj-media { padding: 0 48px 80px; }
+.media-full { width: 100%; margin-bottom: 3px; overflow: hidden; }
+.media-full img { width: 100%; display: block; }
+.media-mockup { background: #0d1a0d; padding: 80px; display: flex; justify-content: center; align-items: center; margin-bottom: 3px; }
+.media-mockup img { max-height: 600px; width: auto; object-fit: contain; }
+.process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; background: var(--surface); padding: 64px 48px; }
+.process-step { padding: 0 24px; border-right: 1px solid var(--border); }
+.process-step:first-child { padding-left: 0; }
+.process-step:last-child { border-right: none; }
+.step-num { font-family: var(--font-display); font-size: 52px; color: rgba(200,255,71,.15); line-height: 1; margin-bottom: 16px; }
+.step-name { font-family: var(--font-display); font-size: 20px; letter-spacing: .05em; margin-bottom: 12px; }
+.step-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
+.next-project:hover { background: var(--surface); }
+.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.next-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 52px); letter-spacing: .04em; }
+.next-arrow { font-family: var(--font-display); font-size: 48px; color: var(--muted); transition: color .3s, transform .3s; }
+.next-project:hover .next-arrow { color: var(--accent); transform: translateX(8px); }
+@media (max-width: 900px) {
+  .proj-hero-content { padding: 0 24px 56px; }
+  .proj-meta { grid-template-columns: 1fr 1fr; }
+  .proj-body { padding: 60px 24px; }
+  .proj-media { padding: 0 24px 60px; }
+  .media-mockup { padding: 40px 24px; }
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 48px 24px; }
+  .process-step { border-right: none; }
+  .next-project { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="../reel.html">Reel</a></li>
+    <li><a href="../work.html" class="active">Work</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <a href="../work.html" class="proj-back">← All Work</a>
+    <div class="proj-cat">UX Design · iOS App</div>
+    <h1 class="proj-title">HIKEBITE<br>IOS APP</h1>
+  </div>
+</div>
+
+<div class="proj-meta">
+  <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">iOS App</div></div>
+  <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2024</div></div>
+  <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">UX / UI Designer</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma · Prototyping</div></div>
+</div>
+
+<div class="proj-body">
+  <h2>The <em>Project</em></h2>
+  <p>HikeBite is an iOS app designed to help hikers plan nutrition for their trails — solving a real pain point for outdoor enthusiasts who struggle to figure out how much food to bring and when to eat on the trail.</p>
+  <p>The challenge was making calorie and nutrition planning feel effortless and visual — not like a spreadsheet. The final design prioritizes trail-based thinking (elevation, duration, intensity) over abstract numbers.</p>
+  <h2>My <em>Process</em></h2>
+  <p>Starting with user research and competitive analysis, I moved through wireframing and iterative prototyping. The visual direction leaned into organic, nature-inspired tones while staying clean enough to read on a sun-lit screen.</p>
+</div>
+
+<div class="process-grid">
+  <div class="process-step reveal"><div class="step-num">01</div><div class="step-name">RESEARCH</div><div class="step-desc">User interviews, competitive analysis, defining the core problem space.</div></div>
+  <div class="process-step reveal" style="transition-delay:.1s"><div class="step-num">02</div><div class="step-name">DEFINE</div><div class="step-desc">Persona development, user journey mapping, feature prioritization.</div></div>
+  <div class="process-step reveal" style="transition-delay:.2s"><div class="step-num">03</div><div class="step-name">DESIGN</div><div class="step-desc">Wireframes, component library, high-fidelity Figma screens.</div></div>
+  <div class="process-step reveal" style="transition-delay:.3s"><div class="step-num">04</div><div class="step-name">PROTOTYPE</div><div class="step-desc">Interactive prototype, usability testing, iteration.</div></div>
+</div>
+
+<div class="proj-media" style="margin-top:3px;">
+  <div class="media-mockup reveal">
+    <!-- CLOUDINARY: replace src -->
+    <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/crop/x_256,y_0,w_1060,h_1242/fill/w_700,h_820,al_c,q_85/onlyscreen.png" alt="HikeBite app screens">
+  </div>
+  <div class="media-full reveal">
+    <!-- CLOUDINARY: replace src -->
+    <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_1600,h_800,al_c,q_80/newHeroImage_edited.jpg" alt="HikeBite hero screen">
+  </div>
+</div>
+
+<a href="denver-zoo.html" class="next-project hover-target">
+  <div><div class="next-label">Next Project</div><div class="next-title">DENVER ZOO REDESIGN</div></div>
+  <div class="next-arrow">→</div>
+</a>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
