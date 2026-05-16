@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learfield / UW Athletics — Will Labeaux</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.proj-hero { height: 70vh; min-height: 440px; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+.proj-hero-bg { position: absolute; inset: 0; background: url('https://res.cloudinary.com/dmt59vgak/image/upload/v1778916705/10102025_Rutgers_light-07804_d5npgh.jpg') center/cover no-repeat; filter: grayscale(15%); }
+.proj-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.97) 0%, rgba(13,13,13,.3) 60%, transparent 100%); }
+.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 64px; width: 100%; }
+.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; transition: color .2s; }
+.proj-back:hover { color: var(--accent); }
+.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.proj-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 100px); line-height: .9; }
+
+.proj-meta { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+.meta-item { padding: 28px 36px; border-right: 1px solid var(--border); }
+.meta-item:last-child { border-right: none; }
+.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.meta-value { font-family: var(--font-display); font-size: 16px; letter-spacing: .06em; line-height: 1.4; }
+
+.role-strip { max-width: 820px; margin: 0 auto; padding: 56px 48px; border-bottom: 1px solid var(--border); }
+.role-strip p { font-size: 15px; line-height: 1.85; color: var(--muted); }
+
+.section-header { padding: 48px 48px 24px; display: flex; justify-content: space-between; align-items: baseline; }
+.section-title { font-family: var(--font-display); font-size: 28px; letter-spacing: .08em; }
+.section-link { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+.section-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Long-form: YouTube full width, then 2 X posts side by side */
+.longform-wrap { padding: 0 48px; }
+.video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 3px; }
+.video-embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+.x-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+.x-embed-col { background: var(--surface); padding: 24px; }
+.x-embed-col .twitter-tweet { margin: 0 auto !important; }
+
+/* Short-form: Instagram portrait + X post side by side */
+.shortform-wrap { padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; align-items: start; }
+.ig-embed-wrap { background: var(--surface); }
+.ig-embed-wrap iframe { width: 100%; min-height: 560px; border: none; display: block; }
+.x-single { background: var(--surface); padding: 24px; }
+
+/* Gondola CTA */
+.gondola-section { padding: 100px 48px; text-align: center; background: var(--surface); position: relative; overflow: hidden; }
+.gondola-section::before { content: 'GONDOLA'; position: absolute; font-family: var(--font-display); font-size: clamp(80px, 14vw, 200px); color: rgba(255,255,255,.025); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; user-select: none; }
+.gondola-eyebrow { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; position: relative; }
+.gondola-heading { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); line-height: .92; margin-bottom: 24px; position: relative; }
+.gondola-heading em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.gondola-sub { font-size: 14px; color: var(--muted); margin-bottom: 40px; position: relative; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.gondola-btn { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--accent); color: var(--bg); padding: 16px 36px; font-family: var(--font-body); text-decoration: none; transition: opacity .2s; position: relative; }
+.gondola-btn:hover { opacity: .85; }
+
+.next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
+.next-project:hover { background: var(--surface); }
+.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.next-title { font-family: var(--font-display); font-size: clamp(28px,4vw,52px); letter-spacing: .04em; }
+.next-arrow { font-family: var(--font-display); font-size: 48px; color: var(--muted); transition: color .3s, transform .3s; }
+.next-project:hover .next-arrow { color: var(--accent); transform: translateX(8px); }
+
+@media (max-width: 900px) {
+  .proj-hero-content { padding: 0 24px 48px; }
+  .proj-meta { grid-template-columns: 1fr 1fr; }
+  .role-strip { padding: 48px 24px; }
+  .section-header { padding: 40px 24px 20px; }
+  .longform-wrap { padding: 0 24px; }
+  .x-grid { grid-template-columns: 1fr; }
+  .shortform-wrap { grid-template-columns: 1fr; padding: 0 24px; }
+  .gondola-section { padding: 80px 24px; }
+  .next-project { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="../reel.html">Reel</a></li>
+    <li><a href="../work.html" class="active">Work</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="proj-hero">
+  <div class="proj-hero-bg"></div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <a href="../work.html" class="proj-back">← All Work</a>
+    <div class="proj-cat">Video · Social Content</div>
+    <h1 class="proj-title">LEARFIELD<br>UW ATHLETICS</h1>
+  </div>
+</div>
+
+<div class="proj-meta">
+  <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Learfield / UW</div></div>
+  <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2025 – Present</div></div>
+  <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Content Specialist</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Premiere · After Effects</div></div>
+</div>
+
+<div class="role-strip reveal">
+  <p>Ideating and producing original and branded video and social content for UW Athletics and Football — driving fan engagement and revenue opportunities across athletic social channels. Solo-producing high-impact content from concept through final delivery, including writing, shooting, editing, and branded/NIL content creation.</p>
+</div>
+
+<!-- VIDEO -->
+<div class="section-header reveal">
+  <div class="section-title">VIDEO</div>
+  <a href="https://gondola.cc/WLabeaux" target="_blank" class="section-link">See more on Gondola ↗</a>
+</div>
+<div class="longform-wrap reveal">
+  <div class="video-embed-wrap">
+    <iframe src="https://www.youtube.com/embed/YJuGvDh0KYE" title="UW Athletics long-form" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+  <div class="x-grid">
+    <div class="x-embed-col">
+      <blockquote class="twitter-tweet" data-theme="dark" data-width="100%">
+        <a href="https://x.com/UW_Football/status/2050256719943774630"></a>
+      </blockquote>
+    </div>
+    <div class="x-embed-col">
+      <blockquote class="twitter-tweet" data-theme="dark" data-width="100%">
+        <a href="https://x.com/UW_Football/status/1971399036159533192"></a>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+
+<div class="shortform-wrap reveal">
+  <div class="ig-embed-wrap">
+    <iframe src="https://www.instagram.com/p/DOZ3s9jCWfe/embed/" allowfullscreen scrolling="no"></iframe>
+  </div>
+  <div class="x-single">
+    <blockquote class="twitter-tweet" data-theme="dark" data-width="100%">
+      <a href="https://x.com/UWAthletics/status/1978157236418380163"></a>
+    </blockquote>
+  </div>
+</div>
+
+
+<!-- GALLERY -->
+<div class="section-header reveal">
+  <div class="section-title">MORE WORK</div>
+</div>
+<div style="padding: 0 48px; columns: 3; column-gap: 3px; margin-bottom: 3px;" class="reveal">
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778959050/10102025_Rutgers_light-07623_yoqidt.jpg" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778957255/WarrenMoon_SoundTheSiren_4x5_eolmop.png" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <video autoplay muted loop playsinline style="width:100%; display:block;">
+      <source src="https://res.cloudinary.com/dmt59vgak/video/upload/q_auto,w_800/v1778958617/MOTW_FBvsCSU9x16_od5gvr.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778958026/091525_Pepsi_BucketHatNIL-24_xist4n.jpg" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778959049/10102025_Rutgers_light-07589_yb3guv.jpg" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <video autoplay muted loop playsinline style="width:100%; display:block;">
+      <source src="https://res.cloudinary.com/dmt59vgak/video/upload/q_auto,w_800/v1778958613/9x16_RollCallOSU_ijjqjt.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778957370/02262026_HuskyStadium-00060_w21onk.jpg" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778958025/091525_Pepsi_BucketHatNIL-3_jrcqcv.jpg" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+  <div style="break-inside: avoid; margin-bottom: 3px; overflow: hidden; display: block;">
+    <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778956988/v2_RollCallPurdue_4x5_tryzu4.png" style="width:100%; display:block; filter:grayscale(10%); transition:filter .4s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(10%)'">
+  </div>
+
+</div>
+
+<!-- GONDOLA CTA -->
+<div class="gondola-section reveal" style="margin-top:3px;">
+  <div class="gondola-eyebrow">See More Work</div>
+  <h2 class="gondola-heading">FULL PORTFOLIO<br>ON <em>Gondola.</em></h2>
+  <p class="gondola-sub">View the complete UW Athletics content portfolio on Gondola.</p>
+  <a href="https://gondola.cc/WLabeaux" target="_blank" class="gondola-btn">Visit Gondola ↗</a>
+</div>
+
+<a href="colorado-buffs.html" class="next-project hover-target">
+  <div><div class="next-label">Next Project</div><div class="next-title">COLORADO BUFFALOES</div></div>
+  <div class="next-arrow">→</div>
+</a>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
