@@ -6,120 +6,72 @@
 <title>Colorado Buffaloes — Will Labeaux</title>
 <link rel="stylesheet" href="../css/style.css">
 <style>
-/* ── HERO ── */
-.proj-hero {
-  height: 70vh; min-height: 440px;
-  position: relative; overflow: hidden; display: flex; align-items: flex-end;
-}
-.proj-hero-bg {
-  position: absolute; inset: 0;
-  background: url('https://res.cloudinary.com/dmt59vgak/image/upload/v1778916799/Screenshot_2026-05-16_at_12.32.57_AM_mo1ets.png') center/cover no-repeat;
-  filter: grayscale(15%);
-}
-.proj-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,.97) 0%, rgba(13,13,13,.3) 60%, transparent 100%);
-}
+.proj-hero { height: 70vh; min-height: 440px; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+.proj-hero-bg { position: absolute; inset: 0; background: url('https://res.cloudinary.com/dmt59vgak/image/upload/v1778916799/Screenshot_2026-05-16_at_12.32.57_AM_mo1ets.png') center/cover no-repeat; filter: grayscale(15%); }
+.proj-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.97) 0%, rgba(13,13,13,.3) 60%, transparent 100%); }
 .proj-hero-content { position: relative; z-index: 2; padding: 0 48px 64px; width: 100%; }
 .proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; transition: color .2s; }
 .proj-back:hover { color: var(--accent); }
 .proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .proj-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 100px); line-height: .9; }
 
-/* ── META ── */
-.proj-meta {
-  display: grid; grid-template-columns: repeat(4,1fr);
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  background: var(--surface);
-}
+.proj-meta { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
 .meta-item { padding: 28px 36px; border-right: 1px solid var(--border); }
 .meta-item:last-child { border-right: none; }
 .meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .meta-value { font-family: var(--font-display); font-size: 16px; letter-spacing: .06em; line-height: 1.4; }
 
-/* ── STATS STRIP ── */
-.stats-strip {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
+.stats-strip { display: grid; grid-template-columns: repeat(3,1fr); background: var(--bg); border-bottom: 1px solid var(--border); }
 .stat-block { padding: 40px 48px; border-right: 1px solid var(--border); text-align: center; }
 .stat-block:last-child { border-right: none; }
-.stat-num { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.stat-num { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); color: var(--accent); line-height: 1; margin-bottom: 8px; }
 .stat-label { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
 
-/* ── SECTION LABELS ── */
-.section-header {
-  padding: 56px 48px 28px;
-  display: flex; justify-content: space-between; align-items: baseline;
-}
-.section-title { font-family: var(--font-display); font-size: 28px; letter-spacing: .08em; color: var(--text); }
-.section-link {
-  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  border-bottom: 1px solid var(--border); padding-bottom: 2px;
-  transition: color .2s, border-color .2s;
-}
+.section-header { padding: 56px 48px 28px; display: flex; justify-content: space-between; align-items: baseline; }
+.section-title { font-family: var(--font-display); font-size: 28px; letter-spacing: .08em; }
+.section-link { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color .2s, border-color .2s; }
 .section-link:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ── VIDEO EMBED ── */
+/* Video embeds */
 .video-wrap { padding: 0 48px 3px; }
 .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-/* ── MEDIA GRIDS ── */
+/* Instagram portrait grid - 3 embeds + 2 thumbnails */
 .media-wrap { padding: 0 48px; }
+.grid-portrait { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-bottom: 3px; align-items: start; }
+.ig-embed-wrap { position: relative; width: 100%; }
+.ig-embed-wrap iframe { width: 100%; min-height: 560px; border: none; display: block; background: var(--surface); }
 
-/* Short-form: portrait thumbnails */
-.grid-portrait {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 3px; margin-bottom: 3px;
+/* Thumbnail fallbacks for Wix videos */
+.thumb-link { display: block; position: relative; overflow: hidden; }
+.thumb-link img { width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block; filter: grayscale(15%); transition: transform .5s ease, filter .4s; }
+.thumb-link:hover img { transform: scale(1.04); filter: grayscale(0%); }
+.thumb-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(13,13,13,0.3); transition: background .3s;
 }
-.grid-portrait a { display: block; overflow: hidden; }
-.grid-portrait img {
-  width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block;
-  filter: grayscale(15%);
-  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
+.thumb-link:hover .thumb-play { background: rgba(13,13,13,0.1); }
+.thumb-play-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(200,255,71,0.9);
+  display: flex; align-items: center; justify-content: center;
 }
-.grid-portrait a:hover img { transform: scale(1.04); filter: grayscale(0%); }
+.thumb-play-icon::after { content: ''; border-left: 16px solid #0d0d0d; border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px; }
 
-/* Long-form: landscape thumbnails */
-.grid-landscape {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3px; margin-bottom: 3px;
-}
-.grid-landscape-top {
-  grid-column: span 2;
-}
+/* Long-form grid */
+.grid-landscape { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+.grid-landscape-full { grid-column: span 2; }
 .grid-landscape a { display: block; overflow: hidden; }
-.grid-landscape img {
-  width: 100%; height: 300px; object-fit: cover; display: block;
-  filter: grayscale(15%);
-  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
-}
-.grid-landscape-top img { height: 420px; }
+.grid-landscape img { width: 100%; height: 300px; object-fit: cover; display: block; filter: grayscale(15%); transition: transform .5s ease, filter .4s; }
+.grid-landscape-full img { height: 420px; }
 .grid-landscape a:hover img { transform: scale(1.04); filter: grayscale(0%); }
 
-/* ── GONDOLA CTA ── */
-.gondola-cta {
-  padding: 64px 48px;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-.gondola-cta p {
-  font-size: 13px; letter-spacing: .08em; color: var(--muted);
-  margin-bottom: 28px;
-}
-.gondola-btn {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-  background: var(--accent); color: var(--bg);
-  padding: 14px 28px; font-family: var(--font-body);
-  text-decoration: none; transition: opacity .2s;
-}
+.gondola-cta { padding: 64px 48px; border-top: 1px solid var(--border); text-align: center; }
+.gondola-cta p { font-size: 13px; letter-spacing: .08em; color: var(--muted); margin-bottom: 28px; }
+.gondola-btn { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: var(--accent); color: var(--bg); padding: 14px 28px; font-family: var(--font-body); text-decoration: none; transition: opacity .2s; }
 .gondola-btn:hover { opacity: .85; }
 
-/* ── NEXT PROJECT ── */
 .next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
 .next-project:hover { background: var(--surface); }
 .next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
@@ -133,12 +85,12 @@
   .stats-strip { grid-template-columns: 1fr; }
   .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
   .section-header { padding: 40px 24px 20px; }
-  .video-wrap { padding: 0 24px 3px; }
-  .media-wrap { padding: 0 24px; }
-  .grid-portrait { grid-template-columns: repeat(3, 1fr); }
+  .video-wrap, .media-wrap { padding: 0 24px; }
+  .grid-portrait { grid-template-columns: 1fr 1fr; }
+  .ig-embed-wrap iframe { min-height: 480px; }
   .grid-landscape { grid-template-columns: 1fr; }
-  .grid-landscape-top { grid-column: span 1; }
-  .grid-landscape img, .grid-landscape-top img { height: 220px; }
+  .grid-landscape-full { grid-column: span 1; }
+  .grid-landscape img, .grid-landscape-full img { height: 220px; }
   .gondola-cta { padding: 48px 24px; }
   .next-project { padding: 32px 24px; }
 }
@@ -158,7 +110,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="proj-hero">
   <div class="proj-hero-bg"></div>
   <div class="proj-hero-overlay"></div>
@@ -169,7 +120,6 @@
   </div>
 </div>
 
-<!-- META -->
 <div class="proj-meta">
   <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">CU Athletics</div></div>
   <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2023 – 2025</div></div>
@@ -177,7 +127,6 @@
   <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Premiere · After Effects · Lightroom</div></div>
 </div>
 
-<!-- STATS -->
 <div class="stats-strip">
   <div class="stat-block reveal">
     <div class="stat-num">60M+</div>
@@ -211,21 +160,32 @@
 </div>
 <div class="media-wrap reveal">
   <div class="grid-portrait">
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_1a0fe61c59724e0a819f1c22e59bc526f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_1a0fe61c59724e0a819f1c22e59bc526f003.jpg" alt="CU short-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_a8d83ac33ca44a0c93db70ef13f9496ff003.jpg/v1/fill/w_400,h_720,q_90/b9baed_a8d83ac33ca44a0c93db70ef13f9496ff003.jpg" alt="CU short-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_12ec464ce1e647afa10ee031c2d90a8af003.jpg/v1/fill/w_400,h_720,q_90/b9baed_12ec464ce1e647afa10ee031c2d90a8af003.jpg" alt="CU short-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_e70b2598a8de4e8ab0495bd210682475f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_e70b2598a8de4e8ab0495bd210682475f003.jpg" alt="CU short-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_cb13efe61c44433881d4585989d03163f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_cb13efe61c44433881d4585989d03163f003.jpg" alt="CU short-form content">
-    </a>
+
+    <!-- SF1: Instagram embed -->
+    <div class="ig-embed-wrap">
+      <iframe src="https://www.instagram.com/p/DIP6Z2Et4mD/embed/" allowfullscreen scrolling="no"></iframe>
+    </div>
+
+    <!-- SF2: Instagram embed -->
+    <div class="ig-embed-wrap">
+      <iframe src="https://www.instagram.com/reel/DGt1qrIvG7x/embed/" allowfullscreen scrolling="no"></iframe>
+    </div>
+
+    <!-- SF3: Instagram embed -->
+    <div class="ig-embed-wrap">
+      <iframe src="https://www.instagram.com/reel/DHBe_sSxKPj/embed/" allowfullscreen scrolling="no"></iframe>
+    </div>
+
+    <!-- SF4: Instagram embed -->
+    <div class="ig-embed-wrap">
+      <iframe src="https://www.instagram.com/p/DGqunpHvVTb/embed/" allowfullscreen scrolling="no"></iframe>
+    </div>
+
+    <!-- SF5: Instagram embed -->
+    <div class="ig-embed-wrap">
+      <iframe src="https://www.instagram.com/p/DGoMKgoph7a/embed/" allowfullscreen scrolling="no"></iframe>
+    </div>
+
   </div>
 </div>
 
@@ -234,45 +194,48 @@
   <div class="section-title">LONG-FORM</div>
   <a href="https://gondola.cc/WLabeaux" target="_blank" class="section-link">See more on Gondola ↗</a>
 </div>
-<div class="media-wrap reveal">
-  <div class="grid-landscape">
-    <div class="grid-landscape-top">
-      <a href="https://gondola.cc/WLabeaux" target="_blank">
-        <img src="https://static.wixstatic.com/media/b9baed_4a8712fadc7544448f0d77cf086ec06e~mv2.jpg/v1/fill/w_1400,h_788,q_90/b9baed_4a8712fadc7544448f0d77cf086ec06e~mv2.jpg" alt="CU long-form content">
-      </a>
-    </div>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_934041584a6e4953beb6ac057bda3eb4~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_934041584a6e4953beb6ac057bda3eb4~mv2.jpg" alt="CU long-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_f59949aee1844879aad723029587e3ab~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_f59949aee1844879aad723029587e3ab~mv2.jpg" alt="CU long-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_eeac07655b624d228ff29222f36e5dd5~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_eeac07655b624d228ff29222f36e5dd5~mv2.jpg" alt="CU long-form content">
-    </a>
-    <a href="https://gondola.cc/WLabeaux" target="_blank">
-      <img src="https://static.wixstatic.com/media/b9baed_92c96a8d391743f783b67298d28dc1b1~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_92c96a8d391743f783b67298d28dc1b1~mv2.jpg" alt="CU long-form content">
-    </a>
-    <div class="grid-landscape-top">
-      <a href="https://gondola.cc/WLabeaux" target="_blank">
-        <img src="https://static.wixstatic.com/media/b9baed_c8f59cb964744290bbdadf62733d2125~mv2.jpg/v1/fill/w_1400,h_788,q_90/b9baed_c8f59cb964744290bbdadf62733d2125~mv2.jpg" alt="CU long-form content">
-      </a>
-    </div>
+
+<!-- LF1: YouTube embed -->
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/5Qt_S2pBkm8" title="Colorado Football long-form" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
 </div>
 
-<!-- GONDOLA CTA -->
+<!-- LF2-6: YouTube embeds -->
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/Ow6dRzZz8cs" title="Colorado long-form 2" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/1whs1BcIpf4" title="Colorado long-form 3" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/1xwXlehpeMs" title="Colorado long-form 4" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/tTH5i0kb6PQ" title="Colorado long-form 5" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+<div class="video-wrap reveal" style="margin-bottom:3px;">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/OSkMW9mkfRU" title="Colorado long-form 6" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+
 <div class="gondola-cta reveal">
-  <p>See my full athletics portfolio including analytics on Gondola</p>
+  <p>See the full athletics portfolio including analytics on Gondola</p>
   <a href="https://gondola.cc/WLabeaux" target="_blank" class="gondola-btn">Visit Gondola Portfolio ↗</a>
 </div>
 
-<!-- NEXT -->
 <a href="learfield-uw.html" class="next-project hover-target">
-  <div>
-    <div class="next-label">Next Project</div>
-    <div class="next-title">LEARFIELD / UW ATHLETICS</div>
-  </div>
+  <div><div class="next-label">Next Project</div><div class="next-title">LEARFIELD / UW ATHLETICS</div></div>
   <div class="next-arrow">→</div>
 </a>
 
