@@ -6,58 +6,140 @@
 <title>Colorado Buffaloes — Will Labeaux</title>
 <link rel="stylesheet" href="../css/style.css">
 <style>
+/* ── HERO ── */
 .proj-hero {
-  height: 90vh; min-height: 560px;
-  position: relative; overflow: hidden;
-  display: flex; align-items: flex-end;
+  height: 70vh; min-height: 440px;
+  position: relative; overflow: hidden; display: flex; align-items: flex-end;
 }
 .proj-hero-bg {
   position: absolute; inset: 0;
-  background: url('https://static.wixstatic.com/media/b9baed_55d7b633a3444a7c96876262e0c26e61~mv2.png/v1/fill/w_1600,h_900,al_c,q_85/Screenshot%202025-04-17%20at%202_26_26%E2%80%AFPM.png') center/cover no-repeat;
-  filter: grayscale(20%); transition: filter .5s;
+  background: url('https://res.cloudinary.com/dmt59vgak/image/upload/v1778916799/Screenshot_2026-05-16_at_12.32.57_AM_mo1ets.png') center/cover no-repeat;
+  filter: grayscale(15%);
 }
-.proj-hero:hover .proj-hero-bg { filter: grayscale(0%); }
 .proj-hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,.95) 0%, rgba(13,13,13,.3) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(13,13,13,.97) 0%, rgba(13,13,13,.3) 60%, transparent 100%);
 }
-.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 72px; width: 100%; }
-.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; transition: color .2s; }
+.proj-hero-content { position: relative; z-index: 2; padding: 0 48px 64px; width: 100%; }
+.proj-back { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; transition: color .2s; }
 .proj-back:hover { color: var(--accent); }
-.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-.proj-title { font-family: var(--font-display); font-size: clamp(52px, 8vw, 112px); line-height: .9; letter-spacing: .02em; }
-.proj-meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
-.meta-item { padding: 32px 40px; border-right: 1px solid var(--border); }
+.proj-cat { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.proj-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 100px); line-height: .9; }
+
+/* ── META ── */
+.proj-meta {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.meta-item { padding: 28px 36px; border-right: 1px solid var(--border); }
 .meta-item:last-child { border-right: none; }
-.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-.meta-value { font-family: var(--font-display); font-size: 18px; letter-spacing: .06em; }
-.proj-body { max-width: 780px; margin: 0 auto; padding: 100px 48px; }
-.proj-body h2 { font-family: var(--font-display); font-size: 42px; letter-spacing: .04em; margin-bottom: 24px; margin-top: 64px; }
-.proj-body h2:first-child { margin-top: 0; }
-.proj-body h2 em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
-.proj-body p { font-size: 16px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
-.proj-media { padding: 0 48px 80px; }
-.media-full { width: 100%; margin-bottom: 3px; overflow: hidden; }
-.media-full img { width: 100%; display: block; transition: transform .6s cubic-bezier(.25,.46,.45,.94); }
-.media-full:hover img { transform: scale(1.02); }
-.media-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
-.media-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; margin-bottom: 3px; }
-.media-grid-2 img, .media-grid-3 img { width: 100%; height: 320px; object-fit: cover; display: block; }
-.video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 3px; }
+.meta-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.meta-value { font-family: var(--font-display); font-size: 16px; letter-spacing: .06em; line-height: 1.4; }
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.stat-block { padding: 40px 48px; border-right: 1px solid var(--border); text-align: center; }
+.stat-block:last-child { border-right: none; }
+.stat-num { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+
+/* ── SECTION LABELS ── */
+.section-header {
+  padding: 56px 48px 28px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.section-title { font-family: var(--font-display); font-size: 28px; letter-spacing: .08em; color: var(--text); }
+.section-link {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  border-bottom: 1px solid var(--border); padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.section-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── VIDEO EMBED ── */
+.video-wrap { padding: 0 48px 3px; }
+.video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* ── MEDIA GRIDS ── */
+.media-wrap { padding: 0 48px; }
+
+/* Short-form: portrait thumbnails */
+.grid-portrait {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 3px; margin-bottom: 3px;
+}
+.grid-portrait a { display: block; overflow: hidden; }
+.grid-portrait img {
+  width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block;
+  filter: grayscale(15%);
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
+}
+.grid-portrait a:hover img { transform: scale(1.04); filter: grayscale(0%); }
+
+/* Long-form: landscape thumbnails */
+.grid-landscape {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3px; margin-bottom: 3px;
+}
+.grid-landscape-top {
+  grid-column: span 2;
+}
+.grid-landscape a { display: block; overflow: hidden; }
+.grid-landscape img {
+  width: 100%; height: 300px; object-fit: cover; display: block;
+  filter: grayscale(15%);
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
+}
+.grid-landscape-top img { height: 420px; }
+.grid-landscape a:hover img { transform: scale(1.04); filter: grayscale(0%); }
+
+/* ── GONDOLA CTA ── */
+.gondola-cta {
+  padding: 64px 48px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.gondola-cta p {
+  font-size: 13px; letter-spacing: .08em; color: var(--muted);
+  margin-bottom: 28px;
+}
+.gondola-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  background: var(--accent); color: var(--bg);
+  padding: 14px 28px; font-family: var(--font-body);
+  text-decoration: none; transition: opacity .2s;
+}
+.gondola-btn:hover { opacity: .85; }
+
+/* ── NEXT PROJECT ── */
 .next-project { border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 48px; text-decoration: none; transition: background .3s; }
 .next-project:hover { background: var(--surface); }
-.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.next-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 52px); letter-spacing: .04em; }
+.next-label { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.next-title { font-family: var(--font-display); font-size: clamp(28px,4vw,52px); letter-spacing: .04em; }
 .next-arrow { font-family: var(--font-display); font-size: 48px; color: var(--muted); transition: color .3s, transform .3s; }
 .next-project:hover .next-arrow { color: var(--accent); transform: translateX(8px); }
+
 @media (max-width: 900px) {
-  .proj-hero-content { padding: 0 24px 56px; }
+  .proj-hero-content { padding: 0 24px 48px; }
   .proj-meta { grid-template-columns: 1fr 1fr; }
-  .proj-body { padding: 60px 24px; }
-  .proj-media { padding: 0 24px 60px; }
-  .media-grid-2, .media-grid-3 { grid-template-columns: 1fr; }
-  .media-grid-2 img, .media-grid-3 img { height: 260px; }
+  .stats-strip { grid-template-columns: 1fr; }
+  .stat-block { border-right: none; border-bottom: 1px solid var(--border); }
+  .section-header { padding: 40px 24px 20px; }
+  .video-wrap { padding: 0 24px 3px; }
+  .media-wrap { padding: 0 24px; }
+  .grid-portrait { grid-template-columns: repeat(3, 1fr); }
+  .grid-landscape { grid-template-columns: 1fr; }
+  .grid-landscape-top { grid-column: span 1; }
+  .grid-landscape img, .grid-landscape-top img { height: 220px; }
+  .gondola-cta { padding: 48px 24px; }
   .next-project { padding: 32px 24px; }
 }
 </style>
@@ -65,7 +147,6 @@
 <body>
 
 <div class="cursor" id="cursor"></div>
-
 
 <nav>
   <a href="../index.html" class="nav-logo">WILL LABEAUX</a>
@@ -77,6 +158,7 @@
   </ul>
 </nav>
 
+<!-- HERO -->
 <div class="proj-hero">
   <div class="proj-hero-bg"></div>
   <div class="proj-hero-overlay"></div>
@@ -87,51 +169,109 @@
   </div>
 </div>
 
+<!-- META -->
 <div class="proj-meta">
   <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">CU Athletics</div></div>
   <div class="meta-item"><div class="meta-label">Year</div><div class="meta-value">2023 – 2025</div></div>
   <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Senior Creative Intern</div></div>
-  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Premiere · Lightroom · After Effects</div></div>
+  <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Premiere · After Effects · Lightroom</div></div>
 </div>
 
-<div class="proj-body">
-  <h2>The <em>Role</em></h2>
-  <p>As Senior Creative Intern for Colorado Football and Athletics, I planned, produced, and edited hundreds of high-impact video, photo, and social content pieces — contributing to content that generated over 60 million views and 4.6 million likes across CU's athletics channels.</p>
-  <p>I led on-set production for recruiting visits and media days, mentored and managed 3 creative interns, and was a key contributor on some of the program's most viral campaigns — including the Travis Hunter Heisman Campaign, NFL Draft Coverage, and multiple recruiting announcements.</p>
-
-  <h2>The <em>Work</em></h2>
-  <p>From sideline game-day coverage to studio shoots and fast-turnaround social edits, the role demanded adaptability, speed, and creative instincts across every format. The content had to compete with national sports media — and consistently did.</p>
-</div>
-
-<!-- REEL EMBED -->
-<div class="proj-media">
-  <div class="video-embed reveal">
-    <iframe
-      src="https://www.youtube.com/embed/ZBSrFwe_TR0"
-      title="Colorado Buffaloes Reel — Will Labeaux"
-      allowfullscreen
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    ></iframe>
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-block reveal">
+    <div class="stat-num">60M+</div>
+    <div class="stat-label">Views across<br>CU Athletics channels</div>
   </div>
-
-  <div class="media-grid-2 reveal" style="margin-top:3px;">
-    <!-- CLOUDINARY: replace src -->
-    <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_800,h_500,al_c,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="CU action 1">
-    <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_800,h_500,al_c,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="CU action 2">
+  <div class="stat-block reveal" style="transition-delay:.08s">
+    <div class="stat-num">4.6M</div>
+    <div class="stat-label">Likes across<br>sports social content</div>
   </div>
-
-  <div class="media-grid-3 reveal">
-    <!-- CLOUDINARY: replace src -->
-    <img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="CU detail 1">
-    <img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="CU detail 2">
-    <img src="https://static.wixstatic.com/media/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg/v1/fill/w_600,h_400,al_c,q_90/b9baed_bced3c1bff8d4ec997b945d3bff01d59~mv2.jpg" alt="CU detail 3">
+  <div class="stat-block reveal" style="transition-delay:.16s">
+    <div class="stat-num">ESPN · FOX · Prime</div>
+    <div class="stat-label">Featured on College Gameday,<br>Big Noon Kickoff & Coach Prime</div>
   </div>
 </div>
 
-<a href="hikebite.html" class="next-project hover-target">
+<!-- 2024 REEL -->
+<div class="section-header reveal">
+  <div class="section-title">2024 FOOTBALL REEL</div>
+  <a href="https://youtu.be/ZBSrFwe_TR0" target="_blank" class="section-link">View on YouTube ↗</a>
+</div>
+<div class="video-wrap reveal">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/ZBSrFwe_TR0" title="2024 Colorado Football Reel" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</div>
+
+<!-- SHORT-FORM -->
+<div class="section-header reveal">
+  <div class="section-title">SHORT-FORM</div>
+  <a href="https://gondola.cc/WLabeaux" target="_blank" class="section-link">See more on Gondola ↗</a>
+</div>
+<div class="media-wrap reveal">
+  <div class="grid-portrait">
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_1a0fe61c59724e0a819f1c22e59bc526f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_1a0fe61c59724e0a819f1c22e59bc526f003.jpg" alt="CU short-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_a8d83ac33ca44a0c93db70ef13f9496ff003.jpg/v1/fill/w_400,h_720,q_90/b9baed_a8d83ac33ca44a0c93db70ef13f9496ff003.jpg" alt="CU short-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_12ec464ce1e647afa10ee031c2d90a8af003.jpg/v1/fill/w_400,h_720,q_90/b9baed_12ec464ce1e647afa10ee031c2d90a8af003.jpg" alt="CU short-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_e70b2598a8de4e8ab0495bd210682475f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_e70b2598a8de4e8ab0495bd210682475f003.jpg" alt="CU short-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_cb13efe61c44433881d4585989d03163f003.jpg/v1/fill/w_400,h_720,q_90/b9baed_cb13efe61c44433881d4585989d03163f003.jpg" alt="CU short-form content">
+    </a>
+  </div>
+</div>
+
+<!-- LONG-FORM -->
+<div class="section-header reveal">
+  <div class="section-title">LONG-FORM</div>
+  <a href="https://gondola.cc/WLabeaux" target="_blank" class="section-link">See more on Gondola ↗</a>
+</div>
+<div class="media-wrap reveal">
+  <div class="grid-landscape">
+    <div class="grid-landscape-top">
+      <a href="https://gondola.cc/WLabeaux" target="_blank">
+        <img src="https://static.wixstatic.com/media/b9baed_4a8712fadc7544448f0d77cf086ec06e~mv2.jpg/v1/fill/w_1400,h_788,q_90/b9baed_4a8712fadc7544448f0d77cf086ec06e~mv2.jpg" alt="CU long-form content">
+      </a>
+    </div>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_934041584a6e4953beb6ac057bda3eb4~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_934041584a6e4953beb6ac057bda3eb4~mv2.jpg" alt="CU long-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_f59949aee1844879aad723029587e3ab~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_f59949aee1844879aad723029587e3ab~mv2.jpg" alt="CU long-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_eeac07655b624d228ff29222f36e5dd5~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_eeac07655b624d228ff29222f36e5dd5~mv2.jpg" alt="CU long-form content">
+    </a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">
+      <img src="https://static.wixstatic.com/media/b9baed_92c96a8d391743f783b67298d28dc1b1~mv2.jpg/v1/fill/w_900,h_510,q_90/b9baed_92c96a8d391743f783b67298d28dc1b1~mv2.jpg" alt="CU long-form content">
+    </a>
+    <div class="grid-landscape-top">
+      <a href="https://gondola.cc/WLabeaux" target="_blank">
+        <img src="https://static.wixstatic.com/media/b9baed_c8f59cb964744290bbdadf62733d2125~mv2.jpg/v1/fill/w_1400,h_788,q_90/b9baed_c8f59cb964744290bbdadf62733d2125~mv2.jpg" alt="CU long-form content">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- GONDOLA CTA -->
+<div class="gondola-cta reveal">
+  <p>See my full athletics portfolio including analytics on Gondola</p>
+  <a href="https://gondola.cc/WLabeaux" target="_blank" class="gondola-btn">Visit Gondola Portfolio ↗</a>
+</div>
+
+<!-- NEXT -->
+<a href="learfield-uw.html" class="next-project hover-target">
   <div>
     <div class="next-label">Next Project</div>
-    <div class="next-title">HIKEBITE IOS APP</div>
+    <div class="next-title">LEARFIELD / UW ATHLETICS</div>
   </div>
   <div class="next-arrow">→</div>
 </a>
@@ -140,9 +280,9 @@
   <span>© 2025 Will Labeaux</span>
   <span class="footer-logo">WL</span>
   <div class="footer-socials">
-    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter</a>
-    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
     <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
