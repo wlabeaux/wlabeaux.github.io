@@ -42,18 +42,8 @@ a { color: inherit; text-decoration: none; }
   transform: translate(-50%, -50%);
   transition: width .2s, height .2s;
 }
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(200,255,71,0.35);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width .3s, height .3s;
-}
 body.cursor-hover .cursor { width: 20px; height: 20px; }
-body.cursor-hover .cursor-ring { width: 60px; height: 60px; }
-
+body.cursor-hover 
 /* ── NAV ─────────────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
