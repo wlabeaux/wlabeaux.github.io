@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Will Labeaux</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { min-height: 100vh; display: flex; flex-direction: column; }
+
+.contact-body {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 80px 48px;
+  gap: 32px;
+}
+.contact-eyebrow {
+  font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--accent);
+}
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px); line-height: .92;
+  letter-spacing: .02em; color: var(--text);
+}
+.email-link {
+  font-size: 13px; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(240,236,227,0.6); text-decoration: none;
+  border-bottom: 1px solid #2a2a2a; padding-bottom: 4px;
+  transition: color .2s, border-color .2s;
+}
+.email-link:hover { color: var(--accent); border-color: var(--accent); }
+
+.divider { width: 1px; height: 32px; background: var(--border); }
+
+.social-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.social-links a {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(240,236,227,0.45); text-decoration: none; transition: color .2s;
+}
+.social-links a:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .contact-body { padding: 60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="reel.html">Reel</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="contact-body">
+  <div class="contact-eyebrow">Get in Touch</div>
+  <h1 class="contact-title">LET'S WORK</h1>
+  <a href="mailto:w.labeaux@gmail.com" class="email-link">w.labeaux@gmail.com</a>
+  <div class="divider"></div>
+  <div class="social-links">
+    <a href="https://gondola.cc/WLabeaux" target="_blank">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank">Instagram</a>
+    <a href="https://twitter.com/WLabeaux" target="_blank">Twitter / X</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>© 2025 Will Labeaux</span>
+  <span class="footer-logo">WL</span>
+  <span style="font-size:11px; letter-spacing:.1em; color:var(--muted);">w.labeaux@gmail.com</span>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
