@@ -7,82 +7,58 @@
 <meta name="description" content="Seattle-based creative specializing in sports video production, live content, and social strategy.">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  overflow: hidden;
-}
-
-.hero-video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; z-index: 0;
-  opacity: 0.75;
-}
-
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: rgba(13,13,13,0.55);
-}
-
-/* Nav sits inside hero */
-.hero-nav {
-  position: relative; z-index: 3;
+.nav {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 32px 48px;
-}
-.hero-nav::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(13,13,13,0.6), transparent);
-  pointer-events: none;
+  padding: 28px 48px;
 }
 .nav-logo {
   font-family: var(--font-display); font-size: 22px; letter-spacing: .08em;
-  color: var(--text); text-decoration: none; position: relative; z-index: 1;
-  transition: color .2s;
+  color: var(--text); text-decoration: none; transition: color .2s;
 }
 .nav-logo:hover { color: var(--accent); }
-.nav-links {
-  display: flex; gap: 40px; list-style: none;
-  position: relative; z-index: 1;
-}
+.nav-links { display: flex; gap: 40px; list-style: none; }
 .nav-links a {
   font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-  color: rgba(240,236,227,0.65); text-decoration: none; transition: color .2s;
+  color: var(--muted); text-decoration: none; transition: color .2s;
 }
 .nav-links a:hover { color: var(--text); }
 
-/* Hero content */
-.hero-content {
-  position: relative; z-index: 2;
-  flex: 1;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 48px 80px;
+.video-wrap {
+  position: relative;
+  height: 22vh; min-height: 140px;
+  overflow: hidden;
 }
+.hero-video {
+  width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.85; display: block;
+}
+.video-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 20%, rgba(13,13,13,0.75) 75%, #0d0d0d 100%);
+}
+
+.hero-content { padding: 32px 48px 56px; }
 
 .eyebrow {
   font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 20px;
+  color: var(--accent); margin-bottom: 16px;
   display: flex; align-items: center; gap: 12px;
 }
 .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(64px, 11vw, 140px);
-  line-height: .9; letter-spacing: .02em;
-  color: var(--text); margin-bottom: 28px;
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: .92; letter-spacing: .02em;
+  color: var(--text); margin-bottom: 16px;
 }
 
 .hero-sub {
-  font-size: 15px; line-height: 1.75;
-  color: rgba(240,236,227,0.7);
-  margin-bottom: 48px;
+  font-size: 15px; color: var(--muted);
+  margin-bottom: 36px;
 }
 
-.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
 
 .btn-accent {
   display: inline-flex; align-items: center; gap: 10px;
@@ -95,34 +71,24 @@
 .btn-ghost-white {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-  border: 1px solid rgba(240,236,227,0.25); color: var(--text);
-  padding: 15px 28px; font-family: var(--font-body); transition: all .2s;
+  border: 1px solid rgba(240,236,227,0.2); color: var(--text);
+  padding: 15px 28px; font-family: var(--font-body); transition: border-color .2s;
 }
 .btn-ghost-white:hover { border-color: var(--text); }
 
-.social-row { display: flex; gap: 28px; flex-wrap: wrap; }
+.social-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .social-link {
-  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: rgba(240,236,227,0.5); text-decoration: none;
-  border-bottom: 1px solid transparent; padding-bottom: 2px;
-  transition: color .2s, border-color .2s;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(240,236,227,0.7); text-decoration: none;
+  background: #1a1a1a; border: 1px solid #2a2a2a;
+  padding: 8px 16px; transition: all .2s;
 }
 .social-link:hover { color: var(--accent); border-color: var(--accent); }
 
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 24px 48px;
-  display: flex; justify-content: space-between; align-items: center;
-  background: var(--bg); position: relative; z-index: 3;
-}
-.site-footer span { font-size: 11px; letter-spacing: .1em; color: var(--muted); }
-.footer-logo { font-family: var(--font-display); font-size: 20px; color: var(--muted); }
-
 @media (max-width: 768px) {
-  .hero-nav { padding: 24px; }
-  .hero-content { padding: 0 24px 60px; }
+  .nav { padding: 20px 24px; }
   .nav-links { gap: 20px; }
+  .hero-content { padding: 28px 24px 48px; }
   .site-footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
 }
 </style>
@@ -131,36 +97,36 @@
 
 <div class="cursor" id="cursor"></div>
 
-<div class="hero">
+<nav class="nav">
+  <a href="index.html" class="nav-logo">WILL LABEAUX</a>
+  <ul class="nav-links">
+    <li><a href="reel.html">Reel</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="video-wrap">
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="https://res.cloudinary.com/dmt59vgak/video/upload/q_auto,w_1280/v1778914127/16x9_1_qvp4ek.mp4" type="video/mp4">
   </video>
-  <div class="hero-overlay"></div>
+  <div class="video-gradient"></div>
+</div>
 
-  <nav class="hero-nav">
-    <a href="index.html" class="nav-logo">WILL LABEAUX</a>
-    <ul class="nav-links">
-      <li><a href="reel.html">Reel</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero-content">
-    <div class="eyebrow">Content Producer + Strategist</div>
-    <h1 class="hero-title">WILL LABEAUX</h1>
-    <p class="hero-sub">Seattle-based Creative specializing in sports.</p>
-    <div class="btn-row">
-      <a href="work.html" class="btn-accent">See My Work →</a>
-      <a href="about.html" class="btn-ghost-white">About Me →</a>
-    </div>
-    <div class="social-row">
-      <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank" class="social-link">Instagram</a>
-      <a href="https://twitter.com/WLabeaux" target="_blank" class="social-link">Twitter / X</a>
-      <a href="https://gondola.cc/WLabeaux" target="_blank" class="social-link">Gondola</a>
-      <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank" class="social-link">LinkedIn</a>
-    </div>
+<div class="hero-content">
+  <div class="eyebrow">Content Producer + Strategist</div>
+  <h1 class="hero-title">WILL LABEAUX</h1>
+  <p class="hero-sub">Seattle-based Creative specializing in sports.</p>
+  <div class="btn-row">
+    <a href="work.html" class="btn-accent">See My Work →</a>
+    <a href="about.html" class="btn-ghost-white">About Me →</a>
+  </div>
+  <div class="social-row">
+    <a href="https://www.instagram.com/willlabeauxcreative/" target="_blank" class="social-link">Instagram</a>
+    <a href="https://twitter.com/WLabeaux" target="_blank" class="social-link">Twitter / X</a>
+    <a href="https://gondola.cc/WLabeaux" target="_blank" class="social-link">Gondola</a>
+    <a href="http://www.linkedin.com/in/will-labeaux-863798228" target="_blank" class="social-link">LinkedIn</a>
   </div>
 </div>
 
