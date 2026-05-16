@@ -37,7 +37,7 @@
 }
 .work-card {
   position: relative; overflow: hidden; background: var(--surface);
-  height: 400px;
+  height: 400px; display: block; cursor: none;
 }
 .work-card img {
   width: 100%; height: 100%; object-fit: cover;
@@ -136,75 +136,70 @@
 <!-- VIDEO + UX GRID -->
 <div class="projects-wrap" id="projectsWrap">
   <div class="all-projects">
-    <!-- VIDEO — NFL, Learfield/UW, Colorado, CU Police, Mount Hermon -->
-    <div class="work-card reveal" data-category="video">
-      <!-- CLOUDINARY: replace src with NFL/Seahawks image -->
+
+    <a href="projects/nfl-seahawks.html" class="work-card reveal" data-category="video">
       <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778916487/Artboard_5_v4cush.png" alt="NFL Seahawks">
       <div class="work-overlay">
-        <div class="work-cat">Live Content · NFL</div>
+        <div class="work-cat">VIDEO · SOCIAL</div>
         <div class="work-name">NFL — Live Correspondent</div>
-        <a href="projects/nfl-seahawks.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="work-card reveal" data-category="video" style="transition-delay:.06s">
-      <!-- CLOUDINARY: replace src with Learfield/UW image -->
+    <a href="projects/learfield-uw.html" class="work-card reveal" data-category="video" style="transition-delay:.06s">
       <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778916705/10102025_Rutgers_light-07804_d5npgh.jpg" alt="Learfield UW">
       <div class="work-overlay">
-        <div class="work-cat">Social Content · Strategy</div>
+        <div class="work-cat">VIDEO · PHOTO · SOCIAL STRATEGY</div>
         <div class="work-name">Learfield — UW Athletics</div>
-        <a href="projects/learfield-uw.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="work-card reveal" data-category="video" style="transition-delay:.12s">
-      <!-- CLOUDINARY: replace src with CU hero image -->
+    <a href="projects/colorado-buffs.html" class="work-card reveal" data-category="video" style="transition-delay:.12s">
       <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778916799/Screenshot_2026-05-16_at_12.32.57_AM_mo1ets.png" alt="Colorado Buffaloes">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography · Social</div>
         <div class="work-name">Colorado Buffaloes — Football + Athletics</div>
-        <a href="projects/colorado-buffs.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="work-card reveal" data-category="video" style="transition-delay:.18s">
-      <!-- CLOUDINARY: replace src with CU Police image -->
+    <a href="projects/cu-police.html" class="work-card reveal" data-category="video" style="transition-delay:.18s">
       <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778916906/Screenshot_2026-05-16_at_12.34.58_AM_vymctj.png" alt="CU Police">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography</div>
         <div class="work-name">CU Police Department</div>
-        <span class="work-link" style="opacity:.4;">Coming Soon</span>
+        <span class="work-link">Coming Soon</span>
       </div>
-    </div>
+    </a>
 
-    <div class="work-card reveal" data-category="video" style="transition-delay:.24s">
-      <!-- CLOUDINARY: replace src with Mount Hermon image -->
+    <a href="projects/mount-hermon.html" class="work-card reveal" data-category="video" style="transition-delay:.24s">
       <img src="https://res.cloudinary.com/dmt59vgak/image/upload/v1778916975/Screenshot_2026-05-16_at_12.36.08_AM_r3fa8i.png" alt="Mount Hermon">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography</div>
         <div class="work-name">Mount Hermon Camps</div>
-        <a href="projects/mount-hermon.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
 
-    <!-- UX PROJECTS -->
-    <div class="work-card reveal" data-category="ux" style="transition-delay:.06s">
+    <a href="projects/hikebite.html" class="work-card reveal" data-category="ux" style="transition-delay:.06s">
       <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/fill/w_800,h_600,al_c,q_85/onlyscreen.png" alt="HikeBite">
       <div class="work-overlay">
         <div class="work-cat">UX Design · iOS</div>
         <div class="work-name">HikeBite iOS App</div>
-        <a href="projects/hikebite.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="work-card reveal" data-category="ux" style="transition-delay:.12s">
+    <a href="projects/denver-zoo.html" class="work-card reveal" data-category="ux" style="transition-delay:.12s">
       <img src="https://static.wixstatic.com/media/b9baed_43b2e549eb384789a294c22b2137815a~mv2.jpg/v1/crop/x_0,y_43,w_3000,h_1520/fill/w_800,h_600,al_c,q_85/b9baed_43b2e549eb384789a294c22b2137815a~mv2.jpg" alt="Denver Zoo">
       <div class="work-overlay">
         <div class="work-cat">UX Design · Web</div>
         <div class="work-name">Denver Zoo Redesign</div>
-        <a href="projects/denver-zoo.html" class="work-link">View Project →</a>
+        <span class="work-link">View Project →</span>
       </div>
-    </div>
+    </a>
+
   </div>
 </div>
 
