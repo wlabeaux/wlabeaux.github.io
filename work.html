@@ -12,8 +12,8 @@
 }
 .work-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(72px, 11vw, 160px);
-  line-height: .88; letter-spacing: .02em; margin-bottom: 40px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1; letter-spacing: .06em; margin-bottom: 32px;
 }
 .work-hero-title em { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
 
@@ -33,15 +33,12 @@
 /* ── PROJECT GRID (video + ux) ── */
 .projects-wrap { padding: 64px 48px; }
 .all-projects {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
 }
 .work-card {
   position: relative; overflow: hidden; background: var(--surface);
+  height: 400px;
 }
-.work-card[data-size="large"]  { grid-column: span 8; height: 520px; }
-.work-card[data-size="medium"] { grid-column: span 4; height: 520px; }
-.work-card[data-size="half"]   { grid-column: span 6; height: 400px; }
-.work-card[data-size="third"]  { grid-column: span 4; height: 360px; }
 .work-card img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s;
@@ -106,10 +103,7 @@
   .work-hero { padding: calc(var(--nav-h) + 32px) 24px 48px; }
   .projects-wrap { padding: 40px 24px; }
   .all-projects { grid-template-columns: 1fr; }
-  .work-card[data-size="large"],
-  .work-card[data-size="medium"],
-  .work-card[data-size="half"],
-  .work-card[data-size="third"] { grid-column: span 1; height: 280px; }
+  .work-card { height: 280px; }
   .photo-gallery-wrap { padding: 40px 24px; }
   .masonry { columns: 2; }
 }
@@ -130,7 +124,7 @@
 </nav>
 
 <div class="work-hero">
-  <h1 class="work-hero-title">ALL<br><em>Work</em></h1>
+  <h1 class="work-hero-title">MY <em>Work</em></h1>
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="video">Video</button>
@@ -142,21 +136,10 @@
 <!-- VIDEO + UX GRID -->
 <div class="projects-wrap" id="projectsWrap">
   <div class="all-projects">
-
-    <!-- VIDEO PROJECTS -->
-    <div class="work-card reveal" data-category="video" data-size="large">
-      <!-- CLOUDINARY: replace src with CU hero image -->
-      <img src="https://static.wixstatic.com/media/b9baed_55d7b633a3444a7c96876262e0c26e61~mv2.png/v1/fill/w_1200,h_700,al_c,q_85/Screenshot%202025-04-17%20at%202_26_26%E2%80%AFPM.png" alt="Colorado Buffaloes">
-      <div class="work-overlay">
-        <div class="work-cat">Video · Photography · Social</div>
-        <div class="work-name">Colorado Buffaloes — Football + Athletics</div>
-        <a href="projects/colorado-buffs.html" class="work-link">View Project →</a>
-      </div>
-    </div>
-
-    <div class="work-card reveal" data-category="video" data-size="medium" style="transition-delay:.08s">
+    <!-- VIDEO — NFL, Learfield/UW, Colorado, CU Police, Mount Hermon -->
+    <div class="work-card reveal" data-category="video">
       <!-- CLOUDINARY: replace src with NFL/Seahawks image -->
-      <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_700,h_800,al_c,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="NFL Seahawks">
+      <img src="https://static.wixstatic.com/media/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg/v1/fill/w_800,h_600,q_90/b9baed_6b43eb5109114a0098773ad2b88878b7~mv2.jpg" alt="NFL Seahawks">
       <div class="work-overlay">
         <div class="work-cat">Live Content · NFL</div>
         <div class="work-name">Seattle Seahawks — Live Correspondent</div>
@@ -164,9 +147,9 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.08s">
+    <div class="work-card reveal" data-category="video" style="transition-delay:.06s">
       <!-- CLOUDINARY: replace src with Learfield/UW image -->
-      <img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="Learfield UW">
+      <img src="https://static.wixstatic.com/media/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg/v1/fill/w_800,h_600,q_90/b9baed_2c96c61198004c45a64442fbd053e219~mv2.jpg" alt="Learfield UW">
       <div class="work-overlay">
         <div class="work-cat">Social Content · Strategy</div>
         <div class="work-name">Learfield — UW Athletics</div>
@@ -174,19 +157,19 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.12s">
-      <!-- CLOUDINARY: replace src with Mount Hermon image -->
-      <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="Mount Hermon">
+    <div class="work-card reveal" data-category="video" style="transition-delay:.12s">
+      <!-- CLOUDINARY: replace src with CU hero image -->
+      <img src="https://static.wixstatic.com/media/b9baed_55d7b633a3444a7c96876262e0c26e61~mv2.png/v1/fill/w_800,h_600,al_c,q_85/Screenshot%202025-04-17%20at%202_26_26%E2%80%AFPM.png" alt="Colorado Buffaloes">
       <div class="work-overlay">
-        <div class="work-cat">Video · Photography</div>
-        <div class="work-name">Mount Hermon Camps</div>
-        <a href="projects/mount-hermon.html" class="work-link">View Project →</a>
+        <div class="work-cat">Video · Photography · Social</div>
+        <div class="work-name">Colorado Buffaloes — Football + Athletics</div>
+        <a href="projects/colorado-buffs.html" class="work-link">View Project →</a>
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="video" data-size="half" style="transition-delay:.16s">
+    <div class="work-card reveal" data-category="video" style="transition-delay:.18s">
       <!-- CLOUDINARY: replace src with CU Police image -->
-      <img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_900,h_560,al_c,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="CU Police">
+      <img src="https://static.wixstatic.com/media/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg/v1/fill/w_800,h_600,q_90/b9baed_92e4696a940143ae96d8f8a75336fc01~mv2.jpg" alt="CU Police">
       <div class="work-overlay">
         <div class="work-cat">Video · Photography</div>
         <div class="work-name">CU Police Department</div>
@@ -194,9 +177,19 @@
       </div>
     </div>
 
+    <div class="work-card reveal" data-category="video" style="transition-delay:.24s">
+      <!-- CLOUDINARY: replace src with Mount Hermon image -->
+      <img src="https://static.wixstatic.com/media/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg/v1/fill/w_800,h_600,q_90/b9baed_8929ddc78a0f4f5c96b21bd1b0a8c735~mv2.jpg" alt="Mount Hermon">
+      <div class="work-overlay">
+        <div class="work-cat">Video · Photography</div>
+        <div class="work-name">Mount Hermon Camps</div>
+        <a href="projects/mount-hermon.html" class="work-link">View Project →</a>
+      </div>
+    </div>
+
     <!-- UX PROJECTS -->
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.08s">
-      <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/fill/w_600,h_500,al_c,q_85/onlyscreen.png" alt="HikeBite">
+    <div class="work-card reveal" data-category="ux" style="transition-delay:.06s">
+      <img src="https://static.wixstatic.com/media/b9baed_b55a24d957cf4035bc0141dd00d398d4~mv2.png/v1/fill/w_800,h_600,al_c,q_85/onlyscreen.png" alt="HikeBite">
       <div class="work-overlay">
         <div class="work-cat">UX Design · iOS</div>
         <div class="work-name">HikeBite iOS App</div>
@@ -204,8 +197,8 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.12s">
-      <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/newHeroImage_edited.jpg" alt="Denver Zoo">
+    <div class="work-card reveal" data-category="ux" style="transition-delay:.12s">
+      <img src="https://static.wixstatic.com/media/b9baed_0424956e48074f839de7cf20b66d5d89~mv2.jpg/v1/fill/w_800,h_600,al_c,q_80/newHeroImage_edited.jpg" alt="Denver Zoo">
       <div class="work-overlay">
         <div class="work-cat">UX Design · Web</div>
         <div class="work-name">Denver Zoo Redesign</div>
@@ -213,15 +206,14 @@
       </div>
     </div>
 
-    <div class="work-card reveal" data-category="ux" data-size="third" style="transition-delay:.16s">
-      <img src="https://static.wixstatic.com/media/b9baed_1e728e8818694b4dbaee7647423b0ac1~mv2.jpg/v1/fill/w_600,h_500,al_c,q_80/Screenshot%202023-12-30%20at%202_29_edited.jpg" alt="Rooted App">
+    <div class="work-card reveal" data-category="ux" style="transition-delay:.18s">
+      <img src="https://static.wixstatic.com/media/b9baed_1e728e8818694b4dbaee7647423b0ac1~mv2.jpg/v1/fill/w_800,h_600,al_c,q_80/Screenshot%202023-12-30%20at%202_29_edited.jpg" alt="Rooted App">
       <div class="work-overlay">
         <div class="work-cat">UX Design · Mobile</div>
         <div class="work-name">Rooted App Design</div>
         <a href="projects/rooted.html" class="work-link">View Project →</a>
       </div>
     </div>
-
   </div>
 </div>
 
